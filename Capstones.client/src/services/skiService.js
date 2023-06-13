@@ -9,7 +9,7 @@ class SkiService {
 //     console.log(res.data)
 // }
 // async getResorts() {
-    // const res = await skiApi.get('resort')
+// const res = await skiApi.get('resort')
 //     AppState.resorts = [
 //         {
 //             "slug": "49-degrees-north",
@@ -292,5 +292,5 @@ class SkiService {
 // async getResort(slug) {
 //     const res = await skiApi.get('resort/' + slug)
 //     AppState.resort = res.data
-}
+
 export const skiService = new SkiService()
