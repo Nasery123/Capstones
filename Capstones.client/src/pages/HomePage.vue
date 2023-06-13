@@ -51,32 +51,32 @@ import { AppState } from '../AppState.js';
 import { computed } from '@vue/reactivity';
 
 export default {
-  setup() { }
-    // onMounted(() => {
-    //   getResorts()
-    // })
-    // getSkiForcast()
-    //     })
-    //     async function getSkiForcast(){
-    //       try {
-    //         let resort = 'Jackson%20Hole'
-    // const options = {
-    //     method: 'GET',
-    //     url: `https://ski-resort-forecast.p.rapidapi.com/${resort}/forecast`,
-    //     params: {
-    //         units: 'i',
-    //         el: 'top'
-    //     },
-    //     headers: {
-    //         'X-RapidAPI-Key': '9122ea96bdmsh75e5c4d9204e860p1e7a0bjsnbf1057d47686',
-    //         'X-RapidAPI-Host': 'ski-resort-forecast.p.rapidapi.com'
-    //     }
-    // };
-    //         await skiService.getSkiForcast(options)
-    //       } catch (error) {
-    //         Pop.error(error)
-    //       }
-    //     }
+  setup() { },
+  // onMounted(() => {
+  //   getResorts()
+  // })
+  // getSkiForcast()
+  //     })
+  //     async function getSkiForcast(){
+  //       try {
+  //         let resort = 'Jackson%20Hole'
+  // const options = {
+  //     method: 'GET',
+  //     url: `https://ski-resort-forecast.p.rapidapi.com/${resort}/forecast`,
+  //     params: {
+  //         units: 'i',
+  //         el: 'top'
+  //     },
+  //     headers: {
+  //         'X-RapidAPI-Key': '9122ea96bdmsh75e5c4d9204e860p1e7a0bjsnbf1057d47686',
+  //         'X-RapidAPI-Host': 'ski-resort-forecast.p.rapidapi.com'
+  //     }
+  // };
+  //         await skiService.getSkiForcast(options)
+  //       } catch (error) {
+  //         Pop.error(error)
+  //       }
+  //     }
   //   async function getResorts() {
   //     try {
   //       await skiService.getResorts()
@@ -97,7 +97,7 @@ export default {
   //     resorts: computed(() => AppState.resorts)
   //   }
   // }
-  return{}
+  return: {}
 }
 </script>
 
