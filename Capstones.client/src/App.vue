@@ -6,7 +6,8 @@
     <router-view />
   </main>
   <footer class="bg-dark text-light">
-    Made with 💖 by CodeWorks
+    <!-- Made with 💖 by CodeWorks -->
+    <h2>add dashboard buttons</h2>
   </footer>
 </template>
 
@@ -51,8 +52,17 @@ footer {
 }
 
 // bring to tutor dashboard page
+// body {
+//   background-image: url('./assets/img/tutor-dashboard.png');
+//   border-image-repeat: no-repeat;
+//   background-position: center;
+//   background-size: cover;
+// }
+
+
+//NOTE - bring to account page
 body {
-  background-image: url('./assets/img/tutor-dashboard.png');
+  background-image: url('./assets/img/account-background.png');
   border-image-repeat: no-repeat;
   background-position: center;
   background-size: cover;

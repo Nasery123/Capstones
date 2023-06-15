@@ -174,7 +174,7 @@
 
 
   <!-- //STUB - Tutor account info page -->
-  <section class="class container-fluid">
+  <section class=" container-fluid">
     <div class="row m-1 ">
       <div class="card ">
         <div class="d-flex ">
@@ -199,6 +199,16 @@
 
       </div>
 
+    </div>
+  </section>
+
+  <section class="container-fluid">
+    <div class="row m-1">
+      <div class="card">
+        <h3>About Me</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit repellat qui repellendus, id explicabo
+          sunt mollitia nesciunt aliquam suscipit magnam quae eligendi quasi vitae dolorum!</p>
+      </div>
     </div>
   </section>
 
