@@ -11,8 +11,6 @@ export const SessionSchema = new Schema({
   }, {timestamp: true, toJSON: {virtuals: true}} 
 )
 
-
-  
 SessionSchema.virtual('student',{
   localField: 'studentId',
   foreignField: '_id',
@@ -26,4 +24,11 @@ SessionSchema.virtual('tutor',{
   ref: 'Account',
   justOne: true
   
+})
+
+SessionSchema.virtual('topic', {
+  localField: 'topicId',
+  foreignField: '_id',
+  ref: 'Topic',
+  justOne: true
 })

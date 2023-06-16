@@ -12,6 +12,7 @@ export class AccountController extends BaseController {
       .get('', this.getUserAccount)
       .get('/student/sessions', this.getStudentSessions)
       .get('/tutor/sessions', this.getTutorSessions)
+      .get('/:tutorId/reviews', this.getReviewsByTutorId)
   }
 
   async getUserAccount(req, res, next) {
@@ -43,5 +44,13 @@ export class AccountController extends BaseController {
     }
   }
 
+ getReviewsByTutorId(req,res,next) {
+    try {
+      const review = 
+      res.send(review)
 
+    } catch (error) {
+      next(error)
+    }
+  }
 }

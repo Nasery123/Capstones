@@ -330,6 +330,7 @@ input {
 .home-card {
   width: 50vw;
 
+
   >img {
     // height: 200px;
     // max-width: 200px;
