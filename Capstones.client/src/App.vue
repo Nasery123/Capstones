@@ -37,12 +37,12 @@ export default {
 // }
 
 // bring below to homepage
-// body {
-//   background-image: url('./assets/img/homepage-background.png');
-//   border-image-repeat: no-repeat;
-//   background-position: center;
-//   background-size: cover;
-// }
+body {
+  background-image: url('./assets/img/homepage-background.png');
+  border-image-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 
 
 footer {
@@ -61,10 +61,10 @@ footer {
 
 
 //NOTE - bring to account page
-body {
-  background-image: url('./assets/img/account-background.png');
-  border-image-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
+// body {
+//   background-image: url('./assets/img/account-background.png');
+//   border-image-repeat: no-repeat;
+//   background-position: center;
+//   background-size: cover;
+// }
 </style>
