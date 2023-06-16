@@ -214,17 +214,47 @@
 
   <section class="container-fluid">
     <div class="row m-1">
+      <div class="card">
+        <div class="card-body">
+          <button @click="join('A')">Join Room A</button>
+          <button @click="join('B')">Join Room B</button>
+          <button @click="testTheSocket()">Test Socket</button>
+          
+          {{ data }}
+        </div>
+      </div>
 
     </div>
   </section>
 </template>
 
 <script>
+import { computed } from "vue";
+import { socketService } from "../services/SocketService.js";
+import { AppState } from "../AppState.js";
+
 
 export default {
-  setup() { },
+  setup() { 
 
-  return: {}
+
+    return {
+      data: computed(() => AppState.data),
+      join(roomName){
+        let leaveRoom = 'A'
+        if(roomName == 'A'){
+          leaveRoom = 'B'
+        }
+
+        socketService.emit('LEAVE', leaveRoom)
+        socketService.emit('JOIN', roomName)
+      },
+      testTheSocket(){
+        console.log('hello')
+        socketService.emit('SOCKET_TEST', {name: ''})
+      }
+    }
+  }
 }
 </script>
 
