@@ -8,7 +8,7 @@ class SessionService {
   
   async createSession(sessionData) {
     const session = await dbContext.Sessions.create(sessionData)
-    await session.populate('tutor student')
+    await session.populate('tutor student topic')
     return session 
   }
 
