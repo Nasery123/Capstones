@@ -15,7 +15,7 @@
         <input type="text" class="form-control" id="floatingInput" placeholder="email" v-model="editable.email">
         <label for="floatingPassword">Email</label>
       </div>
-      <div
+      <!-- <div
       
       
         class="form-floating mb-3">
@@ -23,16 +23,17 @@
           <option>BSU</option>
           <option>CWI</option>
           <option>ISU</option>
-        </select>
-        <!-- <input type="text" class="form-control" id="floatingInput" placeholder="School Name" v-model="editable.SchoolName">
-        <label for="floatingPassword">School Name</label> -->
+        </select> -->
+        <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="School Name" v-model="editable.schoolName">
+        <label for="floatingPassword">School Name</label>
       </div>
       <div class="form-floating mb-3">
         <input type="text" class="form-control" id="floatingInput" placeholder="Hourely Rate" v-model="editable.hourlyRate">
         <label for="floatingPassword">Hourly Rate</label>
       </div>
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingInput" placeholder="Date" v-model="editable.bio">
+        <input type="text" class="form-control" id="floatingInput" placeholder="something about you" v-model="editable.bio">
         <label for="floatingPassword">Bio</label>
       </div>
       <div class="checkbox">
@@ -88,7 +89,7 @@ watchEffect(()=>{
       try {
         // debugger
         await accountService.editAccount(editable.value)
-         Modal.getOrCreateInstance('#createUser').hide()
+         Modal.getOrCreateInstance('#editTutor').hide()
        editable.value = {}
        router.push({name:'Account'})
       } catch (error) {

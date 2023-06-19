@@ -7,8 +7,9 @@ this.name = data.name
 this.picture = data.picture
 this.bio = data.bio 
 this.schoolName = data.schoolName
+
 this.isAvailable = data.isAvaialable || true
-this.hourlyRate = data.hourlyRate || 5 
+this.hourlyRate = data.hourlyRate
 this.isTutor = data.isTutor || false 
   }
 }

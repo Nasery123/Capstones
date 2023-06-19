@@ -13,8 +13,8 @@
     <h2>add dashboard buttons</h2>
   </footer>
 
- <Modal id="createUser">
-<CreateUserForm/>
+ <Modal id="editTutor">
+<EditTutorForm/>
  </Modal>
 
 </template>
