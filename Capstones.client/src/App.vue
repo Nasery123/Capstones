@@ -9,8 +9,20 @@
 
 
   <footer class="bg-dark text-light">
-    <!-- Made with 💖 by CodeWorks -->
-    <h2>add dashboard buttons</h2>
+    <div class="d-flex space-around">
+
+      <router-link :to="{name: 'Home'}">
+        <h3><i class="mdi mdi-home"></i></h3>
+      </router-link>
+
+      <router-link :to="{name: 'Dashboard'}">
+        <h3><i class="mdi mdi-library"></i></h3>
+      </router-link>
+
+      <h3><i class="mdi mdi-message"></i></h3>
+
+      <h3><i class="mdi mdi-account"></i></h3>
+    </div>
   </footer>
 
  <Modal id="editTutor">
