@@ -5,10 +5,18 @@
   <main>
     <router-view />
   </main>
+
+
+
   <footer class="bg-dark text-light">
     <!-- Made with 💖 by CodeWorks -->
     <h2>add dashboard buttons</h2>
   </footer>
+
+ <Modal id="createUser">
+<CreateUserForm/>
+ </Modal>
+
 </template>
 
 <script>

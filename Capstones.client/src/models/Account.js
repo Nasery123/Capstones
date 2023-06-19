@@ -1,10 +1,4 @@
-export class Account extends User {
-  constructor(data) {
-    super(data)
-    this.email = data.email
-    // TODO add additional properties if needed
-  }
-}
+
 
 export class User{
   constructor(data){
@@ -16,6 +10,14 @@ this.schoolName = data.schoolName
 this.isAvailable = data.isAvaialable || true
 this.hourlyRate = data.hourlyRate || 5 
 this.isTutor = data.isTutor || false 
+  }
+}
+
+export class Account extends User {
+  constructor(data) {
+    super(data)
+    this.email = data.email
+    // TODO add additional properties if needed
   }
 }
 
