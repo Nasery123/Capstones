@@ -4,7 +4,8 @@
       <h1 class="modal-title fs-5" id="eventModal">Create User</h1>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
-    <form @submit.prevent=" createUser()">
+    <!-- <form @submit.prevent=" createUser()"> -->
+    <form @submit.prevent="handleSubmit">
     <div class="modal-body">
       <div class="form-floating mb-3">
         <input type="text" class="form-control" id="floatingInput" placeholder="Name" v-model="editable.name">
@@ -14,7 +15,10 @@
         <input type="text" class="form-control" id="floatingInput" placeholder="email" v-model="editable.email">
         <label for="floatingPassword">Email</label>
       </div>
-      <div class="form-floating mb-3">
+      <div
+      
+      
+        class="form-floating mb-3">
         <select class="form-select" aria-label="Default select example">
           <option>BSU</option>
           <option>CWI</option>
@@ -33,7 +37,7 @@
       </div>
       <div class="checkbox">
         <label class="check">Are you a Tutoring?</label>
-        <input v-if="checked" class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+        <input  v-model="editable.isTutor" name="isTutor" class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
 
       </div>
       <!-- <div class="form-floating mb-3">
@@ -41,6 +45,13 @@
         <label for="floatingPassword">Event Capacity</label>
       </div> -->
     </div>
+
+
+    <!-- <div v-if="isTutor== true">
+      <label for="">Teachable Subjects</label>
+      <input type="text">
+    </div> -->
+
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       <button type="submit" class="btn btn-primary">Create A User Account</button>
@@ -53,7 +64,7 @@
 
 <script>
 import { AppState } from '../AppState';
-import { computed, reactive, onMounted, ref } from 'vue';
+import { computed, reactive, onMounted, ref, watchEffect } from 'vue';
 import { accountService } from "../services/AccountService.js";
 import { Modal } from "bootstrap";
 import { useRouter } from "vue-router";
@@ -65,26 +76,39 @@ export default {
     const editable = ref({})
     const router= useRouter()
 
-
+watchEffect(()=>{
+  editable.value={...AppState.account}
+})
     
 
   return { 
     editable, 
-    
-    async createUser(){
+
+    async handleSubmit(){
       try {
-        const formData = editable.value
-        const newUser = await accountService.createUser(formData)
-        Modal.getOrCreateInstance('#createUser').hide()
-        editable.value = {}
-        router.push({name:'Dashboard', 
-      params: {id:newUser.id}})
-        
+        // debugger
+        await accountService.editAccount(editable.value)
+         Modal.getOrCreateInstance('#createUser').hide()
+       editable.value = {}
+       router.push({name:'Account'})
       } catch (error) {
         logger.error(error)
-        Pop.toast(error.message, 'error')
       }
     }
+    
+    // async createUser(){
+    //   try {
+    //     const formData = editable.value
+    //     const newUser = await accountService.createUser(formData)
+    //     Modal.getOrCreateInstance('#createUser').hide()
+    //     editable.value = {}
+    //     router.push({name:'Dashboard', params: {id:newUser.id}})
+        
+    //   } catch (error) {
+    //     logger.error(error)
+    //     Pop.toast(error.message, 'error')
+    //   }
+    // }
    }
   }
 };

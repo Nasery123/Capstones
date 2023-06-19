@@ -8,6 +8,7 @@ export class TopicsController extends BaseController{
     this.router
     .use(Auth0Provider.getAuthorizedUserInfo)
     .post('', this.createTopic)
+    .get('',this.getTopics)
   }
 
 
@@ -21,5 +22,13 @@ export class TopicsController extends BaseController{
       
     }
   }
-  
+  async getTopics(req, res, next){
+    try {
+      const query = req.query
+      const topics = await topicsService.getTopics(query)
+      res.send(topics)
+    } catch (error) {
+      next(error)
+    }
+  }
 }

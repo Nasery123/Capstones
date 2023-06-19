@@ -40,12 +40,16 @@ async function mergeSubsIfNeeded(account, user) {
 function sanitizeBody(body) {
   const writable = {
     name: body.name,
-    picture: body.picture
+    picture: body.picture,
+    isTutor: body.isTutor
   }
   return writable
 }
 
 class AccountService {
+  // editProfile(formData) {
+  //   const newProfile
+  
   /**
    * Returns a user account from the Auth0 user object
    *
@@ -73,7 +77,7 @@ class AccountService {
     const account = await dbContext.Account.findOneAndUpdate(
       { _id: user.id },
       { $set: update },
-      { runValidators: true, setDefaultsOnInsert: true, new: true }
+      { runValidators: true,  new: true }
     )
     return account
   }

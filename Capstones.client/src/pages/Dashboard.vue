@@ -20,21 +20,23 @@
                     <div clas="col-12 justify-content-center align-items-center">
 
                         <h4>Search For Tutor:</h4>
+                        <form @submit.prevent="searchTutors()">
                         <div class="row ">
                             <div class="justify-content-center">
                                 <div class="col-12 py-1">
-                                    <input type="text" placeholder="Subject">
+                                    <input type="text" v-model="search" placeholder="Subject">
                                 </div>
                                 <div class="row">
-                                    <div class="col-12 py-1">
-                                        <input type="text" placeholder="level of Subject">
-                                    </div>
+                                    <!-- <div class="col-12 py-1">
+                                        <input type="text" v-model="searchlevel" placeholder="level of Subject">
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
                         <div class="text-end">
-                            <button class="btn btn-primary">Search</button>
+                            <button type="submit" class="btn btn-primary">Search</button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </card>
@@ -70,10 +72,26 @@
 
 <script>
 import { AppState } from '../AppState';
-import { computed, reactive, onMounted } from 'vue';
+import { computed, reactive, onMounted, ref } from 'vue';
+import { logger } from "../utils/Logger.js";
+import { tutorsService } from "../services/TutorsService.js";
 export default {
   setup(){
-  return {  }
+    const search = ref('')
+    // const searchSubject = ref({})
+  return { 
+    search,
+    async searchTutors(){
+        try {
+            const searchSubject = search.value
+            // const searchlevel = searchlevel.value
+            logger.log('searching Tutors', search.value)
+            await tutorsService.searchTutor(searchSubject)
+        } catch (error) {
+            logger.error(error)
+        }
+    }
+   }
   }
 };
 </script>
