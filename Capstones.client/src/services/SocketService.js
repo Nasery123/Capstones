@@ -12,6 +12,7 @@ class SocketService extends SocketHandler {
       .on('JOINED', this.youJoinedARoom)
       .on('USER_JOINED', this.userJustJoinedTheRoom)
       .on('LEFT', this.youLeftARoom)
+      .on('LEAVE', this.leaveTheRoom)
   }
 
   onError(e) {
@@ -37,6 +38,9 @@ class SocketService extends SocketHandler {
 
   youLeftARoom(room){
     console.log('you left', room)
+  }
+  leaveTheRoom(room){
+    console.log('user has left' + room)
   }
 
 

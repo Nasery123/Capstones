@@ -218,6 +218,8 @@
         <div class="card-body">
           <button @click="join('A')">Join Room A</button>
           <button @click="join('B')">Join Room B</button>
+          <button @click="leave('A')">Leave Room A</button>
+          <button @click="leave('B')">Leave Room B</button>
           <button @click="testTheSocket()">Test Socket</button>
           
           {{ data }}
@@ -249,6 +251,7 @@ export default {
         socketService.emit('LEAVE', leaveRoom)
         socketService.emit('JOIN', roomName)
       },
+
       testTheSocket(){
         console.log('hello')
         socketService.emit('SOCKET_TEST', {name: ''})
