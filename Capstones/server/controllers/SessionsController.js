@@ -31,9 +31,9 @@ async createSession(req,res,next) {
   next(error)
  }
 }
-// async getAllTutorsByTopicId(req,res,next){
+// async getTutorsByTopicId(req,res,next){
 //   try {
-//     const res = await sessionService.getAllSessionsByTopicId
+//     const res = await sessionService.getTutorsByTopicId()
 //   } catch (error) {
 //     next(error)
 //   }

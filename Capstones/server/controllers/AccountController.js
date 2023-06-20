@@ -2,7 +2,7 @@ import { Auth0Provider } from '@bcwdev/auth0provider'
 import { accountService } from '../services/AccountService'
 import BaseController from '../utils/BaseController'
 import { sessionService } from "../services/SessionService.js"
-import e from "express"
+
 
 export class AccountController extends BaseController {
   constructor() {
@@ -12,6 +12,8 @@ export class AccountController extends BaseController {
       .get('', this.getUserAccount)
       .get('/student/sessions', this.getStudentSessions)
       .get('/tutor/sessions', this.getTutorSessions)
+      .put('', this.updateAccount)
+      // .get('/:tutorId/reviews', this.getReviewsByTutorId)
   }
 
   async getUserAccount(req, res, next) {
@@ -43,5 +45,22 @@ export class AccountController extends BaseController {
     }
   }
 
+  async updateAccount(req, res, next){
+    try {
+      const editProfile = await accountService.updateAccount(req.userInfo, req.body)
+      res.send(editProfile)
+    } catch (error) {
+      next(error)
+    }
+  }
 
+//  getReviewsByTutorId(req,res,next) {
+//     try {
+//       const review = 
+//       res.send(review)
+
+//     } catch (error) {
+//       next(error)
+//     }
+//   }
 }
