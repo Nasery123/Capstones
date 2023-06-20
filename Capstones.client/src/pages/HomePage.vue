@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-8col-12 mt-4">
+    <div class="col-md-8 col-12 mt-4">
       <div class="text align-items-center">
         <card class="welcom"> Tutoring on Demand</card>
       </div>
@@ -19,7 +19,7 @@
   </div>
   <div class="row">
     <div class="col-12 col-md-8 learn-box mt-4 ms-3">
-      <div class="learn">LEARN ABOUT TUBER HERE!</div>
+      <card class="learn">LEARN ABOUT TUBER HERE!</card>
     </div>
   </div>
   <div class="row">
@@ -127,9 +127,17 @@ input {
   display: flex;
   align-items: center;
   border-radius: 10px;
-  margin-left: 50px;
+  // margin-left: 50px;
 
 
+}
+card {
+  background: rgba(58, 30, 3, 0.7);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(6.1px);
+-webkit-backdrop-filter: blur(6.1px);
+border: 1px solid rgba(58, 30, 3, 0.22);
 }
 
 
