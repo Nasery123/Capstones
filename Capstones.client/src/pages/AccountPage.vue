@@ -57,7 +57,6 @@ import { logger } from '../utils/Logger.js';
 import { topicsService } from '../services/TopicsService.js';
 export default {
   setup() {
-
     // async function getMyTopics() {
     //   try {
     //     // const tutorId = route.params.id
@@ -70,7 +69,7 @@ export default {
     //   getMyTopics()
     // })
 
-    // async get
+
     return {
       account: computed(() => AppState.account),
       myTopics: computed(() => AppState.myTopics)

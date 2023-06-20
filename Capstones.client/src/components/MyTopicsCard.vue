@@ -11,7 +11,9 @@
 
 
 <script>
+import { computed } from 'vue';
 import { Topic } from '../models/Topic.js';
+import { AppState } from '../AppState.js';
 
 export default {
 
@@ -21,6 +23,7 @@ export default {
     setup() {
         return {
 
+            topics: computed(() => AppState.topics)
         }
     }
 }

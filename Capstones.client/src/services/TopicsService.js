@@ -1,5 +1,6 @@
 // import { applyStyles } from "@popperjs/core/index.js"
 import { AppState } from "../AppState.js"
+import { Account } from "../models/Account.js"
 import { Topic } from "../models/Topic.js"
 import { logger } from "../utils/Logger.js"
 import { api } from "./AxiosService.js"
@@ -25,9 +26,10 @@ class TopicService {
   }
 
   async getMyTopics() {
-    const res = await api.get('api/topics')
+    const res = await api.get(`account/topics`)
     logger.log('[GETTING MY TOPICS]', res.data)
-    AppState.myTopics = res.data.map(t => new Topic(t))
+    // AppState.myTopics = res.data
+    AppState.myTopics = res.data.filter(t => t.id == AppState.account.id)
   }
 }
 export const topicsService = new TopicService()

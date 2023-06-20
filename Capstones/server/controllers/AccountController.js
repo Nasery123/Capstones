@@ -13,7 +13,8 @@ export class AccountController extends BaseController {
       .get('/student/sessions', this.getStudentSessions)
       .get('/tutor/sessions', this.getTutorSessions)
       .put('', this.updateAccount)
-      // .get('/:tutorId/reviews', this.getReviewsByTutorId)
+
+    // .get('/:tutorId/reviews', this.getReviewsByTutorId)
   }
 
   async getUserAccount(req, res, next) {
@@ -25,18 +26,18 @@ export class AccountController extends BaseController {
     }
   }
 
-  
 
-  async getStudentSessions(req,res,next){
+
+  async getStudentSessions(req, res, next) {
     try {
       const studentSessions = await sessionService.getMyStudentSessions(req.userInfo.id)
       res.send(studentSessions)
     } catch (error) {
-      next(error)  
-      }
+      next(error)
+    }
   }
 
-  async getTutorSessions(req,res,next){
+  async getTutorSessions(req, res, next) {
     try {
       const tutorSessions = await sessionService.getMyTutorSessions(req.userInfo.id)
       res.send(tutorSessions)
@@ -45,7 +46,7 @@ export class AccountController extends BaseController {
     }
   }
 
-  async updateAccount(req, res, next){
+  async updateAccount(req, res, next) {
     try {
       const editProfile = await accountService.updateAccount(req.userInfo, req.body)
       res.send(editProfile)
@@ -54,13 +55,13 @@ export class AccountController extends BaseController {
     }
   }
 
-//  getReviewsByTutorId(req,res,next) {
-//     try {
-//       const review = 
-//       res.send(review)
+  //  getReviewsByTutorId(req,res,next) {
+  //     try {
+  //       const review =
+  //       res.send(review)
 
-//     } catch (error) {
-//       next(error)
-//     }
-//   }
+  //     } catch (error) {
+  //       next(error)
+  //     }
+  //   }
 }
