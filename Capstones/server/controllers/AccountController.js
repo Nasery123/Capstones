@@ -13,7 +13,6 @@ export class AccountController extends BaseController {
       .get('/student/sessions', this.getStudentSessions)
       .get('/tutor/sessions', this.getTutorSessions)
       .put('', this.updateAccount)
-      // .get('/:tutorId/reviews', this.getReviewsByTutorId)
   }
 
   async getUserAccount(req, res, next) {
