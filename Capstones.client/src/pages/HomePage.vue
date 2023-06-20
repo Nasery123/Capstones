@@ -27,7 +27,7 @@
       <div>
 
         <button data-bs-toggle="modal" data-bs-target="#editTutor" class="btn btn-primary">Tuber as a Tutor</button>
-        <button data-bs-toggle="modal" data-bs-target="#editStudent" class="btn btn-primary">Tuber as a Student</button>
+        <!-- <button data-bs-toggle="modal" data-bs-target="#editStudent" class="btn btn-primary">Tuber as a Student</button> -->
 
 
       </div>
@@ -45,14 +45,14 @@ import { AppState } from "../AppState.js";
 
 
 export default {
-  setup() { 
+  setup() {
 
 
     return {
       data: computed(() => AppState.data),
-      join(roomName){
+      join(roomName) {
         let leaveRoom = 'A'
-        if(roomName == 'A'){
+        if (roomName == 'A') {
           leaveRoom = 'B'
         }
 
@@ -60,9 +60,9 @@ export default {
         socketService.emit('JOIN', roomName)
       },
 
-      testTheSocket(){
+      testTheSocket() {
         console.log('hello')
-        socketService.emit('SOCKET_TEST', {name: ''})
+        socketService.emit('SOCKET_TEST', { name: '' })
       }
     }
   }

@@ -21,7 +21,9 @@
 
       <h3><i class="mdi mdi-message"></i></h3>
 
-      <h3><i class="mdi mdi-account"></i></h3>
+      <router-link :to="{ name: 'Account' }">
+        <h3><i class="mdi mdi-account"></i></h3>
+      </router-link>
     </div>
   </footer>
 
@@ -30,6 +32,9 @@
   </Modal>
   <Modal id="editStudent">
     <EditStudentForm />
+  </Modal>
+  <Modal id="tutorSubject">
+    <TutorSubjectForm />
   </Modal>
 </template>
 

@@ -30,7 +30,7 @@
           <label for="floatingPassword">School Name</label>
         </div>
 
-        <div class="form-floating mb-3">
+        <!-- <div class="form-floating mb-3">
           <label for="">Subject</label>
           <select v-model="editable.subject" class="form-select" aria-label="Default select example">
             <option>Math</option>
@@ -50,14 +50,14 @@
             <option>400</option>
             <option>500</option>
           </select>
-        </div>
+        </div> -->
 
 
-        <div class="form-floating mb-3">
+        <!-- <div class="form-floating mb-3">
           <input type="text" class="form-control" id="floatingInput" placeholder="Hourely Rate"
             v-model="editable.hourlyRate">
           <label for="floatingPassword">Hourly Rate</label>
-        </div>
+        </div> -->
         <div class="form-floating mb-3">
           <input type="text" class="form-control" id="floatingInput" placeholder="something about you"
             v-model="editable.bio">
@@ -116,9 +116,11 @@ export default {
         try {
           // debugger
           await accountService.editAccount(editable.value)
+          // await accountService.becomeTutor(editable.value)
+
           Modal.getOrCreateInstance('#editTutor').hide()
           editable.value = {}
-          router.push({ name: 'Account' })
+          router.push({ name: 'Dashboard' })
         } catch (error) {
           logger.error(error)
         }

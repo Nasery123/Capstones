@@ -19,14 +19,21 @@ class AccountService {
       logger.log("[Creating User]", res.data)
     } catch (error) {
       logger.error('No')
-      
+
     }
   }
-    async editAccount(formData) {
+  async editAccount(formData) {
     // const res = await api.put('/account', { ...formData, github: formData.socialPlatform})
     const res = await api.put('/account', formData)
+
     AppState.account = new Profile(res.data)
   }
+
+  async becomeTutor() {
+    isTutor = true
+    AppState.account = new Profile(res.data)
+  }
+
 }
 
 export const accountService = new AccountService()
