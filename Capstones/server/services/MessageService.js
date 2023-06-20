@@ -9,6 +9,11 @@ class MessageService {
     await message.populate('creator')
     return message
   }
+  async findSessionMessages(sessionId) {
+    const messages = await dbContext.Messages.find({ sessionId: sessionId }).populate('creator')
+    return messages
+  }
 }
+
 
 export const messageService = new MessageService()
