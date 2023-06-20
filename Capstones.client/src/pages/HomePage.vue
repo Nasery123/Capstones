@@ -39,11 +39,33 @@
 </template>
 
 <script>
+import { computed } from "vue";
+import { socketService } from "../services/SocketService.js";
+import { AppState } from "../AppState.js";
+
 
 export default {
-  setup() { },
+  setup() { 
 
-  return: {}
+
+    return {
+      data: computed(() => AppState.data),
+      join(roomName){
+        let leaveRoom = 'A'
+        if(roomName == 'A'){
+          leaveRoom = 'B'
+        }
+
+        socketService.emit('LEAVE', leaveRoom)
+        socketService.emit('JOIN', roomName)
+      },
+
+      testTheSocket(){
+        console.log('hello')
+        socketService.emit('SOCKET_TEST', {name: ''})
+      }
+    }
+  }
 }
 </script>
 

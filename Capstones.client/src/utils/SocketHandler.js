@@ -30,7 +30,7 @@ export class SocketHandler {
   }
 
   on(event, fn) {
-     const ctx = this
+    const ctx = this
     this.socket?.on(event, function () {
       try {
         fn.call(ctx, ...arguments)
