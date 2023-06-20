@@ -59,7 +59,7 @@ export default {
 // bring below to homepage
 body {
   background-image: url('./assets/img/homepage-background.png');
-  border-image-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
