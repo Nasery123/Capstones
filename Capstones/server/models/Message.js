@@ -6,7 +6,8 @@ export const MessageSchema = new Schema({
   body: { type: String, required: true },
   isRead: { type: Boolean, required: true },
   recipientId: { type: ObjectId, required: true },
-  senderId: { type: ObjectId, required: true }
+  senderId: { type: ObjectId, required: true },
+  sessionId: { type: ObjectId, required: true }
 })
 
 MessageSchema.virtual('creator', {
@@ -15,3 +16,10 @@ MessageSchema.virtual('creator', {
   justOne: true,
   ref: 'Account'
 })
+MessageSchema.virtual('session', {
+  localField: 'sessionId',
+  foreignField: '_id',
+  justOne: true,
+  ref: 'Session'
+}
+)

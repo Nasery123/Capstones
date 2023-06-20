@@ -1,6 +1,6 @@
 import { dbContext } from "../db/DbContext.js"
 
- class TopicsService{
+  class TopicsService{
   
 
   async createTopic(topicData){
@@ -8,13 +8,18 @@ import { dbContext } from "../db/DbContext.js"
     return topic 
 
   }
-   async getTopics(query) {
-   const topics = await dbContext.Topics.find(query).populate('tutor')
+  async getTopics(query) {
+  const topics = await dbContext.Topics.find(query).populate('tutor')
   //  TODO populate tutor virtual
-   return topics
+  return topics
+  }
+
+  async findSessionTopic(sessionId) {
+    const topics = await dbContext.Topics.find({sessionId: sessionId}).populate('session creator')
+    return topics
   }
 
 
- }
+}
 
 export const topicsService = new TopicsService()
