@@ -42,6 +42,13 @@
             </card>
         </div>
     </div>
+
+    <div>
+        <!-- {{ topics.tutor.name }} -->
+        <SessionCard v-for="t in topics" :key="t.id" :topicsProp="t"/>
+    </div>
+
+
     upcoming sessions cards
     <div class="row justify-content-center text-light">
         Upcoming sessions:
@@ -74,6 +81,7 @@
 import { AppState } from '../AppState';
 import { computed, reactive, onMounted, ref } from 'vue';
 import { logger } from "../utils/Logger.js";
+import{ topicsService} from "../services/TopicsService.js";
 import { tutorsService } from "../services/TutorsService.js";
 export default {
   setup(){
@@ -86,11 +94,13 @@ export default {
             const searchSubject = search.value
             // const searchlevel = searchlevel.value
             logger.log('searching Tutors', search.value)
-            await tutorsService.searchTutor(searchSubject)
+            
+            await topicsService.searchTutor(searchSubject)
         } catch (error) {
             logger.error(error)
         }
-    }
+    },
+    topics:computed(() => AppState.topics)
    }
   }
 };

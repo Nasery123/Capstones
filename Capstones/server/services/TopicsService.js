@@ -9,7 +9,7 @@ import { dbContext } from "../db/DbContext.js"
 
   }
    async getTopics(query) {
-   const topics = await dbContext.Topics.find(query)
+   const topics = await dbContext.Topics.find(query).populate('tutor')
   //  TODO populate tutor virtual
    return topics
   }

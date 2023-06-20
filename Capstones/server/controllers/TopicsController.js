@@ -31,4 +31,12 @@ export class TopicsController extends BaseController{
       next(error)
     }
   }
+
+  // async getTopicsById(req,res,next){
+  //   try {
+      
+  //   } catch (error) {
+      
+  //   }
+  // }
 }
