@@ -51,15 +51,30 @@
 </template>
 
 <script>
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import { AppState } from '../AppState';
+import { logger } from '../utils/Logger.js';
+import { topicsService } from '../services/TopicsService.js';
 export default {
   setup() {
 
+    async function getMyTopics() {
+      try {
+        // const tutorId = route.params.id
+        await topicsService.getMyTopics()
+      } catch (error) {
+        logger.error(error)
+      }
+    }
+    onMounted(() => {
+      getMyTopics()
+    })
+
     // async get
     return {
-      myTopics: computed(() => AppState.myTopics),
-      account: computed(() => AppState.account)
+      account: computed(() => AppState.account),
+      myTopics: computed(() => AppState.myTopics)
+
     }
   }
 }
