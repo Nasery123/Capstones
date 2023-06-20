@@ -11,11 +11,11 @@
   <footer class="bg-dark text-light">
     <div class="d-flex space-around">
 
-      <router-link :to="{name: 'Home'}">
+      <router-link :to="{ name: 'Home' }">
         <h3><i class="mdi mdi-home"></i></h3>
       </router-link>
 
-      <router-link :to="{name: 'Dashboard'}">
+      <router-link :to="{ name: 'Dashboard' }">
         <h3><i class="mdi mdi-library"></i></h3>
       </router-link>
 
@@ -25,10 +25,12 @@
     </div>
   </footer>
 
- <Modal id="editTutor">
-<EditTutorForm/>
- </Modal>
-
+  <Modal id="editTutor">
+    <EditTutorForm />
+  </Modal>
+  <Modal id="editStudent">
+    <EditStudentForm />
+  </Modal>
 </template>
 
 <script>
@@ -57,12 +59,12 @@ export default {
 // }
 
 // bring below to homepage
-body {
-  background-image: url('./assets/img/homepage-background.png');
-  border-image-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
+// body {
+//   background-image: url('./assets/img/homepage-background.png');
+//   border-image-repeat: no-repeat;
+//   background-position: center;
+//   background-size: cover;
+// }
 
 
 footer {
@@ -71,13 +73,7 @@ footer {
   height: 32px;
 }
 
-// bring to tutor dashboard page
-// body {
-//   background-image: url('./assets/img/tutor-dashboard.png');
-//   border-image-repeat: no-repeat;
-//   background-position: center;
-//   background-size: cover;
-// }
+
 
 
 //NOTE - bring to account page
