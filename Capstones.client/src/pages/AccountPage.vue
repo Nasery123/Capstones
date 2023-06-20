@@ -58,17 +58,17 @@ import { topicsService } from '../services/TopicsService.js';
 export default {
   setup() {
 
-    async function getMyTopics() {
-      try {
-        // const tutorId = route.params.id
-        await topicsService.getMyTopics()
-      } catch (error) {
-        logger.error(error)
-      }
-    }
-    onMounted(() => {
-      getMyTopics()
-    })
+    // async function getMyTopics() {
+    //   try {
+    //     // const tutorId = route.params.id
+    //     await topicsService.getMyTopics()
+    //   } catch (error) {
+    //     logger.error(error)
+    //   }
+    // }
+    // onMounted(() => {
+    //   getMyTopics()
+    // })
 
     // async get
     return {
