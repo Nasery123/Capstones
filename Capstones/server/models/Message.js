@@ -8,11 +8,3 @@ export const MessageSchema = new Schema({
   recipientId: { type: ObjectId, required: true },
   senderId: { type: ObjectId, required: true }
 })
-
-MessageSchema.virtual('creator', {
-localField: 'creatorId',
-foreignField: '_id',
-justOne: true,
-ref: 'Account'
-
-})
