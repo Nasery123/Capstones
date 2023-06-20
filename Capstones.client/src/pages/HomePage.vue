@@ -25,9 +25,11 @@
   <div class="row">
     <div class="col-12 d-flex justify-content-around mt-5">
       <div>
-        
-    <button data-bs-toggle="modal" data-bs-target="#editTutor" class="btn btn-primary">CREATE ACCOUNT</button>
- 
+
+        <button data-bs-toggle="modal" data-bs-target="#editTutor" class="btn btn-primary">Tuber as a Tutor</button>
+        <button data-bs-toggle="modal" data-bs-target="#editStudent" class="btn btn-primary">Tuber as a Student</button>
+
+
       </div>
       <div>
         <button class="btn btn-primary">LOG IN</button>
