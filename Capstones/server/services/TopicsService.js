@@ -15,8 +15,8 @@ import { BadRequest, Forbidden } from "../utils/Errors.js"
   return topics
   }
 
-    async getTopicsById(id) {
-  const topics = await dbContext.Topics.findById(id)
+  async getTopicsById(accountId) {
+  const topics = await dbContext.Topics.findById(accountId)
   return topics
   }
 
