@@ -15,6 +15,11 @@ import { BadRequest, Forbidden } from "../utils/Errors.js"
   return topics
   }
 
+  async getTopicsById(accountId) {
+  const topics = await dbContext.Topics.findById(accountId)
+  return topics
+  }
+
 async deleteTopic(topicId, userId){
   const topic = await dbContext.Topics.findById(topicId)
   if (!topic) throw new BadRequest("This Topic Doesn't Exist")
