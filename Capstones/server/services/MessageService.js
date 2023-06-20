@@ -6,7 +6,7 @@ class MessageService {
 
   async createMessage(messageData) {
     const message = await dbContext.Messages.create(messageData)
-    await message.populate('tutor student body')
+    await message.populate('creator')
     return message
   }
 }
