@@ -2,6 +2,7 @@ import { sessionService } from "../services/SessionService.js";
 import BaseController from "../utils/BaseController.js";
 import { Auth0Provider } from "@bcwdev/auth0provider";
 import { messageService } from "../services/MessageService.js";
+import { topicsService } from "../services/TopicsService.js";
 
 export class SessionsController extends BaseController {
   constructor() {
@@ -13,7 +14,8 @@ export class SessionsController extends BaseController {
       // .get('/:studentId', this.getSessionsByStudentId)
       .delete('/:sessionId', this.deleteSessionById)
       .get('/:sessionId/messages', this.findSessionMessages)
-      .delete('/:sessionId/messages', this.deleteMessageThread)
+      // .delete('/:sessionId/messages', this.deleteMessageThread)
+      .get('/:sessionId/topics', this.getSesssionTopic)
   }
 
 
@@ -80,12 +82,21 @@ export class SessionsController extends BaseController {
       next(error)
     }
   }
-  async deleteMessageThread(req, res, next) {
+  // async deleteMessageThread(req, res, next) {
+  //   try {
+  //     const messageId = req.params.messageId
+  //     const userId = req.userInfo.id
+  //     await messageService.deleteMessageThread(messageId)
+  //     return res.send(`${messageId} deleted`)
+  //   } catch (error) {
+  //     next(error)
+  //   }
+  // }
+
+  async getSesssionTopic(req, res, next) {
     try {
-      const sessionId = req.params.sessionId
-      const userId = req.userInfo.id
-      await messageService.deleteMessageThread(creatorId, userId)
-      return res.send(`${creatorId} deleted`)
+      const topic = await sessionService.getSessionTopic(req.params.sessionId)
+      return res.send(topic)
     } catch (error) {
       next(error)
     }

@@ -44,6 +44,11 @@ return
     return tutorSessions
   }
 
+  async getSessionTopic(sessionId) {
+    const topics = await dbContext.Topics.find({sessionId: sessionId}).populate ('session')
+    return topics
+  }
+
 }
 
 export const sessionService = new SessionService()
