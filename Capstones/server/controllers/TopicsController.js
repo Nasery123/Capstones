@@ -9,9 +9,8 @@ export class TopicsController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createTopic)
       .get('', this.getTopics)
+      .delete('/:topicId', this.deleteTopic)
   }
-
-
   async createTopic(req, res, next) {
     try {
       req.body.accountId = req.userInfo.id
@@ -32,11 +31,14 @@ export class TopicsController extends BaseController {
     }
   }
 
-  // async getTopicsById(req,res,next){
-  //   try {
-
-  //   } catch (error) {
-
-  //   }
-  // }
+  async deleteTopic(req, res, next) {
+    try {
+      const topicId = req.params.topicId
+      const userId = req.userInfo.id
+      await topicsService.deleteTopic(topicId, userId)
+      return res.send(`${topicId} deleted`)
+    } catch (error) {
+      next (error)
+    }
+  }
 }
