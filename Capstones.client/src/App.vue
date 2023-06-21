@@ -64,12 +64,12 @@ export default {
 // }
 
 // bring below to homepage
-body {
-  background-image: url('./assets/img/homepage-background.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
+// body {
+//   background-image: url('./assets/img/homepage-background.png');
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   background-size: cover;
+// }
 
 
 footer {

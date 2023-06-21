@@ -1,38 +1,40 @@
 <template>
-  <!-- NOTE the below template is the home view with two buttons for log in and create an account. and three boxes with some text -->
+  <div class="accountpage">
+    <!-- NOTE the below template is the home view with two buttons for log in and create an account. and three boxes with some text -->
 
-  <div class="row align-items-center">
-    <div class="col-md-8 col-12 justify-content-center align-items-center">
-      <div class="text text-center">
+    <div class="row align-items-center">
+      <div class="col-md-8 col-12 justify-content-center align-items-center">
+        <div class="text text-center">
 
-        <card class="welcom"> Welcome to TUber</card>
+          <card class="welcom"> Welcome to TUber</card>
 
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8 col-12 mt-4">
-      <div class="text align-items-center">
-        <card class="welcom"> Tutoring on Demand</card>
+    <div class="row">
+      <div class="col-md-8 col-12 mt-4">
+        <div class="text align-items-center">
+          <card class="welcom"> Tutoring on Demand</card>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12 col-md-8 learn-box mt-4 ms-3">
-      <card class="learn">LEARN ABOUT TUBER HERE!</card>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 d-flex justify-content-around mt-5">
-      <div>
-
-        <button data-bs-toggle="modal" data-bs-target="#editTutor" class="btn btn-primary">Tuber as a Tutor</button>
-        <!-- <button data-bs-toggle="modal" data-bs-target="#editStudent" class="btn btn-primary">Tuber as a Student</button> -->
-
-
+    <div class="row">
+      <div class="col-12 col-md-8 learn-box mt-4 ms-3">
+        <card class="learn">LEARN ABOUT TUBER HERE!</card>
       </div>
-      <div>
-        <button class="btn btn-primary">LOG IN</button>
+    </div>
+    <div class="row">
+      <div class="col-12 d-flex justify-content-around mt-5">
+        <div>
+
+          <button data-bs-toggle="modal" data-bs-target="#editTutor" class="btn btn-primary">Tuber as a Tutor</button>
+          <!-- <button data-bs-toggle="modal" data-bs-target="#editStudent" class="btn btn-primary">Tuber as a Student</button> -->
+
+
+        </div>
+        <div>
+          <button class="btn btn-primary">LOG IN</button>
+        </div>
       </div>
     </div>
   </div>
@@ -131,15 +133,25 @@ input {
 
 
 }
+
 card {
   background: rgba(58, 30, 3, 0.7);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(6.1px);
--webkit-backdrop-filter: blur(6.1px);
-border: 1px solid rgba(58, 30, 3, 0.22);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.1px);
+  -webkit-backdrop-filter: blur(6.1px);
+  border: 1px solid rgba(58, 30, 3, 0.22);
 }
 
+.accountpage {
+
+  // background-image: url('./assets/img/homepage-background.png');
+  background-image: url('https://c4.wallpaperflare.com/wallpaper/704/302/377/digital-art-colorful-minimalism-abstract-wallpaper-preview.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+}
 
 
 // .carousel-item {
@@ -192,7 +204,7 @@ border: 1px solid rgba(58, 30, 3, 0.22);
 }
 
 //TODO - move dash background img to dashboard page once created
-.dash-background-img {
-  background-image: url();
-}
+// .dash-background-img {
+//   background-image: url();
+// }
 </style>
