@@ -5,6 +5,7 @@ import { MessageSchema } from "../models/Message.js";
 import { SessionSchema } from "../models/Session.js";
 import { TopicSchema } from "../models/Topic.js";
 import { ReviewSchema } from "../models/Review.js";
+import { RoomsSchema } from "../models/Room.js";
 
 class DbContext {
   Values = mongoose.model('Value', ValueSchema);
@@ -13,6 +14,8 @@ class DbContext {
   Messages = mongoose.model('Message', MessageSchema);
   Topics = mongoose.model('Topic', TopicSchema);
   Reviews = mongoose.model('Review', ReviewSchema)
+  Rooms = mongoose.model("Room", RoomsSchema)
+  Channels = mongoose.model("Room", RoomsSchema)
 
 
 

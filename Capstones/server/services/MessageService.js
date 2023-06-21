@@ -5,27 +5,26 @@ import { BadRequest, Forbidden } from "../utils/Errors.js"
 
 
 class MessageService {
-
-
-  async createMessage(messageData) {
-    const message = await dbContext.Messages.create(messageData)
-    await message.populate('creator')
+  async getOne(messageId) {
+    let message = await dbContext.Messages.findById(messageId).populate("creator", "name picture")
+    if (message == null) {
+      throw new BadRequest("That Message Doesn't Exist")
+    }
+    return message;
+  }
+  async create(messageBody) {
+    let message = await dbContext.Messages.create(messageBody)
+    await message.populate("creator", "name picture")
+    await message.populate("channel")
     return message
   }
-  async findSessionMessages(sessionId) {
-    const messages = await dbContext.Messages.find({ sessionId: sessionId }).populate('creator')
-    return messages
-  }
-
-  async deleteMessageThread(messageId, userId) {
-
-    const message = await dbContext.Messages.findById(messageId)
-    if (!message) throw new BadRequest("This Message Doesn't Exist")
+  async delete(messageId, userId) {
+    let message = await this.getOne(messageId)
     if (message.creatorId != userId) {
-    throw new Forbidden("Nuh uh, buddy")
+      throw new Forbidden("YOu can't do that, bub")
     }
     await message.remove()
-    return
+    return "You Deleted The Message"
   }
 }
 
