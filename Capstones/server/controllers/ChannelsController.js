@@ -1,85 +1,94 @@
 import { Auth0Provider } from "@bcwdev/auth0provider";
 import BaseController from "../utils/BaseController";
-import { roomsService } from "../services/RoomsService";
-export class RoomsController extends BaseController {
+import { channelsService } from "../services/ChannelsService";
+import { SocketHandler } from "../utils/SocketHandler";
+import { socketProvider } from "../SocketProvider";
+export class ChannelsController extends BaseController {
   constructor() {
-    super('api/rooms')
+    super("api/channels");
     this.router
       .get("", this.getAll)
       .get("/:id", this.getOne)
-      .get("/:id/messages", this.getMessages)
+      .get("/:id/rooms", this.getRooms)
       .use(Auth0Provider.getAuthorizedUserInfo)
-      .get("/:id/friend", this.getFriendRoom)
       .post("", this.create)
       .put("/:id", this.edit)
-      .delete("/:id", this.delete)
+      .delete("/:id", this.delete);
   }
   async getAll(req, res, next) {
     try {
-      let rooms = await roomsService.getAll()
-      return res.send(rooms)
+      let channels = await channelsService.getAll();
+      return res.send(channels);
     } catch (error) {
-      next(error)
+      next(error);
     }
   }
   async getOne(req, res, next) {
     try {
-      let roomId = req.params.id
-      let room = await roomsService.getOne(roomId)
-      return res.send(room)
+      let channelId = req.params.id;
+      let channel = await channelsService.getOne(channelId);
+      return res.send(channel);
     } catch (error) {
-      next(error)
+      next(error);
     }
   }
   async create(req, res, next) {
     try {
-      let roomData = req.body
-      roomData.creatorId = req.userInfo.id
-      let room = await roomsService.create(roomData)
-      return res.send(room)
+      let channelBody = req.body;
+      channelBody.creatorId = req.userInfo.id;
+      let channel = await channelsService.create(channelBody);
+      socketProvider.message("s:creating:channel", channel);
+      return res.send(channel);
     } catch (error) {
-      next(error)
+      next(error);
     }
   }
   async edit(req, res, next) {
     try {
-      let roomData = req.body
-      roomData.creatorId = req.userInfo.id
-      roomData.id = req.params.id
-      let editedRoom = await roomsService.edit(roomData)
-      return res.send(editedRoom)
+      let channelBody = req.body;
+      channelBody.creatorId = req.userInfo.id;
+      channelBody.id = req.params.id;
+      let editedChannel = await channelsService.edit(channelBody);
+      return res.send(editedChannel);
     } catch (error) {
-      next(error)
+      next(error);
     }
   }
   async delete(req, res, next) {
     try {
-      let roomId = req.params.id
-      let userId = req.userInfo.id
-      let message = await roomsService.delete(roomId, userId)
-      return res.send(message)
+      let creatorId = req.userInfo.id;
+      let channelId = req.params.id;
+      let message = await channelsService.delete(channelId, creatorId);
+      return res.send(message);
     } catch (error) {
-      next(error)
+      next(error);
     }
   }
   // SECTION MESSAGES
   async getMessages(req, res, next) {
     try {
-      let roomId = req.params.id
-      let messages = await roomsService.getMessages(roomId)
-      return res.send(messages)
+      let channelId = req.params.id;
+      let messages = await channelsService.getMessages(channelId);
+      return res.send(messages);
     } catch (error) {
-      next(error)
+      next(error);
     }
   }
-  // SECTION FRIENDS
-  async getFriendRoom(req, res, next) {
+  // SECTION ROOMS
+  async getRooms(req, res, next) {
     try {
-      let channelId = req.params.id
-      let room = await roomsService.getFriendRoom(channelId)
-      return res.send(room)
+      let channelId = req.params.id;
+      let rooms = await channelsService.getRooms(channelId);
+      return res.send(rooms);
     } catch (error) {
-      next(error)
+      next(error);
     }
   }
 }
+
+
+
+
+
+
+

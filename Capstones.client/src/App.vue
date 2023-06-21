@@ -19,7 +19,10 @@
         <h3><i class="mdi mdi-library"></i></h3>
       </router-link>
 
-      <h3><i class="mdi mdi-message"></i></h3>
+      
+      <router-link :to="{ name: 'MessageHubPage' }">
+        <h3><i class="mdi mdi-message"></i></h3>
+      </router-link>
 
       <router-link :to="{ name: 'Account' }">
         <h3><i class="mdi mdi-account"></i></h3>
