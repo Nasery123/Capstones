@@ -123,7 +123,7 @@ export default {
       }
     };
   },
-  components: { Login }
+  // components: { Login }
 }
 </script>
 

@@ -26,7 +26,7 @@ import { computed } from "vue";
 import { AppState } from "../../AppState";
 import { logger } from "../../utils/Logger";
 import Pop from "../../utils/Pop";
-import ServerList from "../HomePage/ServerList.vue";
+import ServerList from "../MessageStuff/ServerList.vue";
 import { router } from "../../router";
 
 export default {

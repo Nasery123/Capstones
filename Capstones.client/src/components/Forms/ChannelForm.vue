@@ -1,48 +1,28 @@
 <template>
-  <div v-if="!channel" class="col-md-6 bgLight verticalScroll">
-    <h1>#Yo {{ account.name }}</h1>
-  </div>
-  <div v-else class="col-md-6 bgLight verticalScroll">
-    <div class="row">
-      <div v-if="friend" class="col-12">
-        <h1># {{ friend.Friend.name }}</h1>
-      </div>
-      <div v-else class="col-12">
-        <h1># {{ channel.name }}</h1>
-      </div>
+  <form @submit.prevent="createChannel()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input type="text" v-model="editable.name" class="form-control" id="name" aria-describedby="channelName">
     </div>
-    <div class="row bg-light m-2 rounded d-flex align-items-center" v-for="m in messages" :key="m.id">
-      <div class="col-1 me-3">
-        <img class="profilePicture" :src=m.Creator.picture alt="">
-      </div>
-      <div class="col-10">
-        <div class="row">
-          <div class="col-12 mt-2">
-            <h6>{{ m.Creator.name }}</h6>
-          </div>
-          <div class="col-12">
-            <p>{{ m.body }}</p>
-          </div>
-        </div>
-      </div>
+    <div class="mb-3">
+      <label for="channelImage" class="form-label">Image:</label>
+      <input type="text" class="form-control" v-model="editable.img" id="img">
     </div>
-    <div id="messageForm" class="row justify-content-center m-2">
-      <textarea @keydown.enter.prevent="createMessage(channel.id)"
-        class="col-12 rounded align-items-center py-2 form-control" name="description" v-model="editable.body" id=""
-        cols="" rows="1" placeholder="Write your message..."></textarea>
+    <div class="mb-3">
+      <label class="form-label" for="description">Description:</label>
+      <textarea class="form-control" name="description" id="description" v-model="editable.description"
+        rows="3"></textarea>
     </div>
-  </div>
+    <button data-bs-dismiss="modal" type="submit" class="btn btn-outline-dark">Submit</button>
+  </form>
 </template>
 
 <script>
-import { computed, onMounted, ref, watchEffect } from "vue";
-import { AppState } from "../../AppState";
+import { ref } from "vue";
 import { logger } from "../../utils/Logger";
 import Pop from "../../utils/Pop";
-import { messagesService } from "../../services/MessagesService";
-import { useRoute } from "vue-router";
-
-
+import { channelsService } from "../../services/ChannelsService";
+import { AppState } from "../../AppState";
 
 export default {
 
@@ -50,26 +30,37 @@ export default {
 
   setup() {
     let editable = ref({})
-    const route = useRoute()
 
 
 
     return {
-      channel: computed(() => AppState.channel),
-      messages: computed(() => AppState.messages),
-      friend: computed(() => AppState.friend),
-      account: computed(() => AppState.account),
       editable,
-
-      async createMessage() {
+      async createChannel() {
         try {
-          let messageData = editable.value
-          messageData.roomId = route.params.id
-          await messagesService.createMessage(messageData)
+          let channelBody = editable.value
+          await channelsService.create(channelBody)
           editable.value = {}
         } catch (error) {
           logger.error('[ERROR]', error)
           Pop.error(('[ERROR]'), error.message)
+        }
+      },
+
+      async editChannel() {
+        try {
+          const channelBody = editable.value
+          await channelsService.edit(channelBody)
+        } catch (error) {
+          logger.error('[ERROR]', error)
+          Pop.error(('[ERROR]'), error.message)
+        }
+      },
+
+      handleSubmit() {
+        if (AppState.editChannel) {
+          this.editChannel()
+        } else {
+          this.createChannel()
         }
       }
     }
@@ -77,33 +68,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.profilePicture {
-  height: 50px;
-  width: 50px;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-}
-
-.bgLight {
-  background-color: #265e49;
-  color: whitesmoke;
-}
-
-.verticalScroll {
-  overflow-x: hidden;
-  height: 100dvh;
-  overflow-y: scroll;
-  border-right: #053f05 2px solid;
-}
-
-.verticalScroll::-webkit-scrollbar {
-  width: 2px;
-  height: 5dvh;
-  background-color: #053f05;
-}
-
-.verticalScroll::-webkit-scrollbar-thumb {
-  background: #053f05;
-}
-</style>
+<style></style>

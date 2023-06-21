@@ -2,19 +2,19 @@
     <section class="container-fluid bigHeight">
         <div class="row">
             <ChannelList class="order-1 order-md-1" />
-            <FriendRoomList class="order-2 order-md-2" />
+            <!-- <FriendRoomList class="order-2 order-md-2" /> -->
             <ChatRoom class="order-4 order-md-3" />
             <WhoIsOnline class="order-3 order-md-4" />
         </div>
     </section>
-    <Modal id="editChannel">
+    <!-- <Modal id="editChannel">
         <template #header>
             <div>Edit Channel</div>
         </template>
         <template #body>
             <ChannelForm />
         </template>
-    </Modal>
+    </Modal> -->
     <Modal id="createRoom">
         <template #header>
             <div>Create Room</div>
@@ -30,10 +30,10 @@ import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
 import { channelsService } from "../services/ChannelsService"
 import { AppState } from "../AppState";
-import FriendRoomList from "../components/HomePage/FriendRoomList.vue";
-import ChannelList from "../components/HomePage/ChannelList.vue"
-import ChatRoom from "../components/HomePage/ChatRoom.vue"
-import WhoIsOnline from "../components/HomePage/WhoIsOnline.vue";
+// import FriendRoomList from "../components/MessageStuff/FriendRoomList.vue.js";
+import ChannelList from "../components/MessageStuff/ChannelList.vue.js";
+// import ChatRoom from "../components/MessageStuff/ChatRoom.vue.js";
+import WhoIsOnline from "../components/MessageStuff/WhoIsOnline.vue.js";
 import Modal from "../components/Util/Modal.vue";
 import ChannelForm from "../components/Forms/ChannelForm.vue";
 import RoomForm from "../components/Forms/RoomForm.vue";
@@ -129,7 +129,7 @@ export default {
         return {
         };
     },
-    components: { FriendRoomList, ChannelList, ChatRoom, WhoIsOnline, Modal, ChannelForm, RoomForm }
+    // components: { ChannelList, ChatRoom, WhoIsOnline, Modal, ChannelForm, RoomForm }
 }
 </script>
 <style scoped lang="scss">

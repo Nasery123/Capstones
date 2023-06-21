@@ -2,7 +2,7 @@ import { AppState } from "../AppState";
 import { Channel } from "../models/Channel";
 import { Message } from "../models/Message";
 import { Room } from "../models/Room";
-import { User } from "../models/User";
+// import { User } from "../models/User";
 import { logger } from "../utils/Logger";
 import { api } from "./AxiosService";
 class ChannelsService {
@@ -15,7 +15,7 @@ class ChannelsService {
     logger.log(new Channel(res.data));
     AppState.channel = new Channel(res.data);
     AppState.editChannel = new Channel(res.data);
-    // await this.getRooms(serverId);
+    await this.getRooms(serverId);
     // await this.getUsers(serverId);
   }
   // async getUsers(channelId) {
@@ -24,7 +24,7 @@ class ChannelsService {
   //   AppState.users = res.data.map((u) => new User(u));
   // }
   async getMessages() {
-    const res = await api.get("api/channels/64359c414dc0b5da04e9666e/messages");
+    const res = await api.get("api/channels/channelId/messages");
     let messages = res.data.map((m) => new Message(m));
     logger.log(messages);
   }
@@ -35,8 +35,7 @@ class ChannelsService {
   }
   async create(channelBody) {
     const res = await api.post("api/channels", channelBody);
-    // NOTE COMMENTED OUT FOR WEB SOCKETS.. DON"T NEED
-    // AppState.channels.push(new Channel(res.data));
+
   }
   async edit(channelBody) {
     const res = await api.put(`api/channels/${channelBody.id}`, channelBody);
