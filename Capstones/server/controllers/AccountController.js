@@ -35,10 +35,9 @@ export class AccountController extends BaseController {
     }
   }
 
-
   async getStudentSessions(req, res, next) {
     try {
-      const studentSessions = await sessionService.getMyStudentSessions(req.userInfo.id)
+      const studentSessions = await sessionService.getSessionsByStudentId(req.userInfo.id)
       res.send(studentSessions)
     } catch (error) {
       next(error)
@@ -47,7 +46,7 @@ export class AccountController extends BaseController {
 
   async getTutorSessions(req, res, next) {
     try {
-      const tutorSessions = await sessionService.getMyTutorSessions(req.userInfo.id)
+      const tutorSessions = await sessionService.getSessionByTutorId(req.userInfo.id)
       res.send(tutorSessions)
     } catch (error) {
       next(error)

@@ -22,6 +22,28 @@
         <MyTopicsCard :myTopicsProp="t" />
       </div>
     </section>
+    <section class="row">
+      <div>
+        <h5>My Requests from students:</h5>
+      </div>
+      <div class="col-md-3" v-for="t in tutorSessions" :key="t.id">
+
+        <div :class="{ 'bg-danger': t.status == 'denied' }">
+          {{ t.status }}
+          <button>Accept</button>
+          <button @click="t.status = 'denied'">Deny</button>
+        </div>
+
+      </div>
+    </section>
+    <section class="row">
+      <div>
+        <h5>My requests as a student:</h5>
+      </div>
+      <div class="col-md-3" v-for="t in studentSessions" :key="t.id">
+        {{ t }}
+      </div>
+    </section>
 
     <section class="row">
       <div class="d-flex" v-if="account.isTutor == true">
@@ -57,24 +79,47 @@ import { computed, onMounted } from 'vue';
 import { AppState } from '../AppState';
 import { logger } from '../utils/Logger.js';
 import { topicsService } from '../services/TopicsService.js';
+import { sessionsService } from '../services/SessionsService.js';
+import { accountService } from '../services/AccountService.js';
 export default {
   setup() {
-    // async function getMyTopics() {
-    //   try {
-    //     // const tutorId = route.params.id
-    //     await topicsService.getMyTopics()
-    //   } catch (error) {
-    //     logger.error(error)
-    //   }
-    // }
-    // onMounted(() => {
-    //   getMyTopics()
-    // })
+
+    async function getMyTopics() {
+      try {
+        // const tutorId = route.params.id
+        await topicsService.getMyTopics()
+      } catch (error) {
+        logger.error(error)
+      }
+    }
+    async function getMyStudentSessions() {
+      try {
+        // const tutorId = route.params.id
+        await accountService.getStudentSessions()
+      } catch (error) {
+        logger.error(error)
+      }
+    }
+    async function getMyTutorSessions() {
+      try {
+        // const tutorId = route.params.id
+        await accountService.getTutorSessions()
+      } catch (error) {
+        logger.error(error)
+      }
+    }
+    onMounted(() => {
+      getMyTopics()
+      getMyStudentSessions()
+      getMyTutorSessions()
+    })
 
 
     return {
       account: computed(() => AppState.account),
-      myTopics: computed(() => AppState.myTopics)
+      myTopics: computed(() => AppState.myTopics),
+      tutorSessions: computed(() => AppState.tutorSessions),
+      studentSessions: computed(() => AppState.studentSessions)
 
     }
   }

@@ -32,7 +32,20 @@ class AccountService {
   async becomeTutor() {
     isTutor = true
     AppState.account = new Profile(res.data)
+    await api.put('/account', AppState.account)
   }
+
+  async getTutorSessions() {
+    const res = await api.get('account/tutor/sessions')
+    AppState.tutorSessions = res.data
+  }
+
+  async getStudentSessions() {
+    const res = await api.get('account/student/sessions')
+    AppState.studentSessions = res.data
+  }
+
+
 
 }
 

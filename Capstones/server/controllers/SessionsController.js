@@ -18,21 +18,10 @@ export class SessionsController extends BaseController {
       .get('/:sessionId/topics', this.getSesssionTopic)
   }
 
-
-
-
-
-
-
   async createSession(req, res, next) {
     try {
-      // req.body.studentId = req.userInfo.id
-      req.body.creatorId = req.userInfo.id
-      const session = await sessionService.createSession(req.body)
-
+      const session = await sessionService.createSession(req.body, req.userInfo.id)
       return res.send(session)
-
-
     } catch (error) {
       next(error)
     }

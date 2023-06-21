@@ -22,7 +22,7 @@
             <p><i class="mdi mdi-star"></i></p>
           </div>
 
-          <button @click="createStudentSessionRequest()" class="btn btn-primary">Request Tutor</button>
+          <button @click="createStudentSessionRequest(topicsProp)" class="btn btn-primary">Request Tutor</button>
         </div>
       </div>
       <!-- </div> -->
@@ -49,22 +49,15 @@ export default {
     topicsProp: { type: Topic, required: true }
   },
 
-  setup() {
+  setup(props) {
     // const editable = ref({})
     const route = useRoute()
     return {
-      // editable,
-      topics: computed(() => AppState.topics),
-
-
-      async createStudentSessionRequest() {
+      async createStudentSessionRequest(topic) {
         try {
-          // const userId = userInfo.id
-          // const formData = editable.value
-          const topicId = route.params.topicId
-          const creatorId = route.params.creatorId
-          // const sessionId = route.params.sessionId
-          await sessionsService.createStudentSessionRequest(creatorId, topicId)
+
+
+          await sessionsService.createStudentSessionRequest(topic)
         } catch (error) {
           Pop.error(error)
         }
