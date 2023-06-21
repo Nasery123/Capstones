@@ -13,7 +13,7 @@ export class SessionsController extends BaseController {
       // .get('/:tutorId', this.getSessionsByTutorId )
       // .get('/:studentId', this.getSessionsByStudentId)
       .delete('/:sessionId', this.deleteSessionById)
-      .get('/:sessionId/messages', this.findSessionMessages)
+      // .get('/:sessionId/messages', this.findSessionMessages)
       // .delete('/:sessionId/messages', this.deleteMessageThread)
       .get('/:sessionId/topics', this.getSesssionTopic)
   }
@@ -74,19 +74,19 @@ export class SessionsController extends BaseController {
       next(error)
     }
   }
-  async findSessionMessages(req, res, next) {
-    try {
-      const messages = await messagesService.findSessionMessages(req.params.sessionId)
-      res.send(messages)
-    } catch (error) {
-      next(error)
-    }
-  }
+  // async findSessionMessages(req, res, next) {
+  //   try {
+  //     const messages = await messagesService.findSessionMessages(req.params.sessionId)
+  //     res.send(messages)
+  //   } catch (error) {
+  //     next(error)
+  //   }
+  // }
   // async deleteMessageThread(req, res, next) {
   //   try {
   //     const messageId = req.params.messageId
   //     const userId = req.userInfo.id
-  //     await messageService.deleteMessageThread(messageId)
+  //     await messagesService.deleteMessageThread(messageId)
   //     return res.send(`${messageId} deleted`)
   //   } catch (error) {
   //     next(error)
