@@ -35,7 +35,7 @@ const routes = [
     beforeEnter:authGuard
   },
   {
-    path:'/account/:accountId/messages',
+    path:'/account/messages',
     name: 'MessageHub',
     component: loadPage('MessageHubPage'),
     beforeEnter:authGuard
