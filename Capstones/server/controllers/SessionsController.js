@@ -1,7 +1,7 @@
 import { sessionService } from "../services/SessionService.js";
 import BaseController from "../utils/BaseController.js";
 import { Auth0Provider } from "@bcwdev/auth0provider";
-import { messageService } from "../services/MessageService.js";
+import { messagesService } from "../services/MessagesService.js";
 import { topicsService } from "../services/TopicsService.js";
 
 export class SessionsController extends BaseController {
@@ -76,7 +76,7 @@ export class SessionsController extends BaseController {
   }
   async findSessionMessages(req, res, next) {
     try {
-      const messages = await messageService.findSessionMessages(req.params.sessionId)
+      const messages = await messagesService.findSessionMessages(req.params.sessionId)
       res.send(messages)
     } catch (error) {
       next(error)

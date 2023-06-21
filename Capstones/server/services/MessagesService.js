@@ -4,7 +4,7 @@ import { BadRequest, Forbidden } from "../utils/Errors.js"
 
 
 
-class MessageService {
+class MessagesService {
   async getOne(messageId) {
     let message = await dbContext.Messages.findById(messageId).populate("creator", "name picture")
     if (message == null) {
@@ -29,4 +29,4 @@ class MessageService {
 }
 
 
-export const messageService = new MessageService()
+export const messagesService = new MessagesService()
