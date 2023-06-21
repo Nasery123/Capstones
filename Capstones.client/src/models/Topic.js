@@ -2,6 +2,7 @@ import { Profile } from "./Account.js"
 
 export class Topic {
   constructor(data) {
+    this.id = data.id
     this.subject = data.subject
     this.hourlyRate = data.hourlyRate
     this.accountId = data.accountId

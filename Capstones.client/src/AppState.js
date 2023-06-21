@@ -7,7 +7,7 @@ export const AppState = reactive({
   account: {},
   topics: [],
   myTopics: [],
-   /** @type {import('./models/Room.js').Room} */
+  /** @type {import('./models/Room.js').Room} */
   room: [],
   /** @type {import('./models/Room.js').Room} */
   rooms: [],
@@ -23,4 +23,6 @@ export const AppState = reactive({
   channel: null,
   /** @type {import('./models/Channel.js').Channel||null} */
   editChannel: null,
+  studentSession: [],
+  tutorSession: []
 })

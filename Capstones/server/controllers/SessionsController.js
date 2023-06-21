@@ -26,7 +26,8 @@ export class SessionsController extends BaseController {
 
   async createSession(req, res, next) {
     try {
-      req.body.studentId = req.userInfo.id
+      // req.body.studentId = req.userInfo.id
+      req.body.creatorId = req.userInfo.id
       const session = await sessionService.createSession(req.body)
 
       return res.send(session)

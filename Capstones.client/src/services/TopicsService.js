@@ -6,13 +6,17 @@ import { logger } from "../utils/Logger.js"
 import { api } from "./AxiosService.js"
 
 class TopicService {
-  async searchTutor(searchSubject) {
+  async searchTutor(searchSubject, searchLevel) {
     logger.log('search subject', searchSubject)
     // const res = await api.get(`api/topics?subject=${searchSubject}`)
     const res = await api.get('api/topics', {
-      params: { subject: searchSubject }
+      params: {
+        subject: searchSubject
+        // level: searchLevel
+      }
     })
     AppState.query = searchSubject
+    // AppState.query = searchLevel
     logger.log(res.data, '[here is topics]')
     AppState.topics = res.data.map(t => new Topic(t))
     // AppState.tutors = res.data.map(t => new Tutor(t))
@@ -30,6 +34,12 @@ class TopicService {
     logger.log('[GETTING MY TOPICS]', res.data)
     // AppState.myTopics = res.data
     AppState.myTopics = res.data.map(t => new Topic(t))
+  }
+  async deleteTopic(topicId) {
+    const res = await api.delete(`api/topics/${topicId}`)
+
+    logger.log('[Vince sait to throw a logger log', res.data)
+    AppState.myTopics = AppState.myTopics.filter(t => t.id != topicId)
   }
 }
 export const topicsService = new TopicService()
