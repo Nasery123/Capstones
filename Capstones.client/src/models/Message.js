@@ -1,8 +1,10 @@
+import { Profile } from "./Account.js"
+
 export class Message{
   constructor(data){
-this.creatorId = data.creatorId
+this.id = data.id
 this.body = data.body
-this.isRead= data.isREad ||true
-this.recipientId = data.recipientId
-  }
+this.createdAt = data.createdAt
+this.creator = new Profile(data.creator)
+}
 }
