@@ -7,14 +7,14 @@
             <WhoIsOnline class="order-3 order-md-4" />
         </div>
     </section>
-    <Modal id="editChannel">
-        <!-- <template #header>
+    <!-- <Modal id="editChannel">
+        <template #header>
             <div>Edit Channel</div>
-        </template> -->
+        </template>
         <template #body>
             <ChannelForm />
         </template>
-    </Modal>
+    </Modal> -->
     <Modal id="createRoom">
         <template #header>
             <div>Create Room</div>
@@ -34,7 +34,7 @@ import { socketService } from "../services/SocketService.js";
 import { logger } from "../utils/Logger.js";
 import Pop from "../utils/Pop.js";
 import { Modal } from 'bootstrap';
-import { router } from "../router.js";
+// import { router } from "../router.js";
 import ChannelForm from "../components/Forms/ChannelForm.vue";
 import RoomForm from "../components/Forms/RoomForm.vue";
 import ChatRoom from "../components/MessageStuff/ChatRoom.vue"

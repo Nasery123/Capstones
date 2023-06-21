@@ -95,6 +95,8 @@ import { computed, reactive, onMounted, ref } from 'vue';
 import { logger } from "../utils/Logger.js";
 import { topicsService } from "../services/TopicsService.js";
 import { tutorsService } from "../services/TutorsService.js";
+import { channelsService } from "../services/ChannelsService.js";
+import Pop from "../utils/Pop.js";
 export default {
     setup() {
         const filterBy = ref('')
@@ -134,7 +136,10 @@ export default {
             account: computed(() => AppState.account)
 
         }
-    }
+
+}
+
+
 };
 </script>
 
