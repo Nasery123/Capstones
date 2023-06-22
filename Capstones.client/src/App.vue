@@ -20,7 +20,7 @@
       </router-link>
 
       
-      <router-link :to="{ path: '/account/messages' }">
+      <router-link :to="{ name: 'MessageHub' }">
         <h3><i class="mdi mdi-message"></i></h3>
       </router-link>
 

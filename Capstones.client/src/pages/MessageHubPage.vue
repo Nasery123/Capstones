@@ -15,14 +15,14 @@
             <ChannelForm />
         </template>
     </Modal> -->
-    <Modal id="createRoom">
+    <!-- <Modal id="createRoom">
         <template #header>
             <div>Create Room</div>
         </template>
         <template #body>
             <RoomForm />
         </template>
-    </Modal>
+    </Modal> -->
 </template>
 
 
