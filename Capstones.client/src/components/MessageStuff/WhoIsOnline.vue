@@ -48,7 +48,7 @@ export default {
 }
 
 .bgLight {
-  background-color: #265e49;
-  color: whitesmoke;
+  background-color: #3a1c3a;
+  color: #3a1c3a;
 }
 </style>

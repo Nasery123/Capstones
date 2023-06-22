@@ -87,7 +87,7 @@ export default {
 
 .bgLight {
   background-color: #040404;
-  color: whitesmoke;
+  color: rgb(245, 245, 245);
 }
 
 .verticalScroll {

@@ -3,7 +3,7 @@
   <div class="d-none d-md-block col-md-2 bgPrimary bigHeight">
     <div class="row topChat border-bottom align-items-center">
       <div class=" col-12">
-        <h5 class="m-0">Friends </h5>
+        <h5 class="m-0">Broskis </h5>
       </div>
     </div>
     <div class="row middleChat verticalScroll">
@@ -147,11 +147,11 @@ export default {
 
 .bottomChat {
   height: 10%;
-  background-color: #13251f;
+  background-color: #3a1c3a;
 }
 
 .bgPrimary {
-  background-color: #1c3a2e;
+  background-color: #3a1c3a;
   color: whitesmoke;
 }
 
@@ -165,16 +165,16 @@ export default {
 .verticalScroll {
   overflow-x: hidden;
   overflow-y: scroll;
-  border-right: #053f05 2px solid;
+  border-right: #3a1c3a 2px solid;
 }
 
 .verticalScroll::-webkit-scrollbar {
   width: 2px;
   height: 5dvh;
-  background-color: #053f05;
+  background-color: #3a1c3a;
 }
 
 .verticalScroll::-webkit-scrollbar-thumb {
-  background: #053f05;
+  background: #3a1c3a;
 }
 </style>

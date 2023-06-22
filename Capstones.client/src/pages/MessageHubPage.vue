@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <section class="container-fluid bigHeight">
         <div class="row">
             <ChannelList class="order-1 order-md-1" />
@@ -7,22 +7,24 @@
             <WhoIsOnline class="order-3 order-md-4" />
         </div>
     </section>
-    <!-- <Modal id="editChannel">
+import ChatRoom from "../components/MessageStuff/ChatRoom.vue.js";
+    <Modal id="editChannel">
         <template #header>
+import SessionMessagePage from "./SessionMessagePage.vue.js";
             <div>Edit Channel</div>
         </template>
         <template #body>
             <ChannelForm />
         </template>
-    </Modal> -->
-    <!-- <Modal id="createRoom">
+    </Modal>
+    <Modal id="createRoom">
         <template #header>
             <div>Create Room</div>
         </template>
         <template #body>
             <RoomForm />
         </template>
-    </Modal> -->
+    </Modal>
 </template>
 
 
@@ -120,6 +122,86 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss" scoped> -->
 
+<!-- </style> -->
+<template>
+  <section class="container-fluid bigHeight">
+    <div class="row">
+      <!-- SECTION Message LIST -->
+      <!-- FIXME -->
+      <ChannelList />
+      <!-- SECTION FRIENDS/ROOMS LIST -->
+      <!-- FIXME -->
+      <FriendRoomList />
+      <!-- SECTION CHAT -->
+      <!-- FIXME -->
+      <ChatRoom />
+      <!-- SECTION WHO'S ONLINE -->
+      <WhoIsOnline />
+    </div>
+  </section>
+</template>
+<script>
+import { onBeforeMount, onMounted, onUnmounted } from "vue";
+import { logger } from "../utils/Logger";
+import Pop from "../utils/Pop";
+import { channelsService } from "../services/ChannelsService"
+import { AppState } from "../AppState";
+import WhoIsOnline from "../components/MessageStuff/WhoIsOnline.vue";
+import ChannelList from "../components/MessageStuff/ChannelList.vue";
+import ChatRoom from "../components/MessageStuff/ChatRoom.vue";
+import SessionMessagePage from "./SessionMessagePage.vue";
+import FriendRoomList from "../components/MessageStuff/FriendRoomList.vue";
+export default {
+  setup() {
+    onBeforeMount(() => {
+      resetAppState()
+    })
+    onMounted(() => {
+      getChannels();
+    });
+    async function getChannels() {
+      try {
+        await channelsService.getAll();
+      }
+      catch (error) {
+        logger.error("[ERROR]", error);
+        Pop.error(("[ERROR]"), error.message);
+      }
+    }
+    function resetAppState() {
+      try {
+        AppState.users = []
+        AppState.room = null
+        AppState.channel = null
+      } catch (error) {
+        logger.error('[ERROR]', error)
+        Pop.error(('[ERROR]'), error.message)
+      }
+    }
+    onUnmounted(() => {
+      AppState.users = []
+    });
+    return {
+    };
+  },
+  components: { WhoIsOnline, ChannelList, ChatRoom, FriendRoomList }
+}
+</script>
+<style scoped lang="scss">
+.bigHeight {
+  height: 100dvh;
+}
 </style>
+
+
+
+
+
+
+
+
+
+
+
