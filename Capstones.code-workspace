@@ -1,4 +1,3 @@
-
 {
   "folders": [
     {
@@ -43,19 +42,14 @@
       "activityBarBadge.background": "#53d30c",
       "activityBarBadge.foreground": "#15202b",
       "commandCenter.border": "#e7e7e799",
-      "panel.border": "#e90d5b",
       "sash.hoverBorder": "#e90d5b",
-      "sideBar.border": "#e90d5b",
       "statusBar.background": "#b90a48",
-      "statusBar.border": "#b90a48",
       "statusBar.foreground": "#e7e7e7",
       "statusBarItem.hoverBackground": "#e90d5b",
       "statusBarItem.remoteBackground": "#b90a48",
       "statusBarItem.remoteForeground": "#e7e7e7",
-      "tab.activeBorder": "#e90d5b",
       "titleBar.activeBackground": "#b90a48",
       "titleBar.activeForeground": "#e7e7e7",
-      "titleBar.border": "#b90a48",
       "titleBar.inactiveBackground": "#b90a4899",
       "titleBar.inactiveForeground": "#e7e7e799"
     },

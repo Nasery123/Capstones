@@ -1,14 +1,14 @@
 <template>
   <div v-if="!channel" class="col-md-6 bgLight verticalScroll">
-    <h1>#Yo {{ account.name }}</h1>
+    <h1>Hello {{ account.name }}</h1>
   </div>
   <div v-else class="col-md-6 bgLight verticalScroll">
     <div class="row">
-      <div v-if="friend" class="col-12">
-        <h1># {{ friend.Friend.name }}</h1>
+      <div v-if="account" class="col-12">
+        <h1># {{ account.Profile.name }}</h1>
       </div>
       <div v-else class="col-12">
-        <h1># {{ channel.name }}</h1>
+        <h1># {{ room.title }}</h1>
       </div>
     </div>
     <div class="row bg-light m-2 rounded d-flex align-items-center" v-for="m in messages" :key="m.id">
@@ -55,7 +55,7 @@ export default {
 
 
     return {
-      channel: computed(() => AppState.channel),
+      room: computed(() => AppState.room),
       messages: computed(() => AppState.messages),
       friend: computed(() => AppState.friend),
       account: computed(() => AppState.account),
@@ -86,7 +86,7 @@ export default {
 }
 
 .bgLight {
-  background-color: #265e49;
+  background-color: #040404;
   color: whitesmoke;
 }
 
@@ -94,16 +94,16 @@ export default {
   overflow-x: hidden;
   height: 100dvh;
   overflow-y: scroll;
-  border-right: #053f05 2px solid;
+  border-right: #96d3e3 2px solid;
 }
 
 .verticalScroll::-webkit-scrollbar {
   width: 2px;
   height: 5dvh;
-  background-color: #053f05;
+  background-color: #96d3e3;
 }
 
 .verticalScroll::-webkit-scrollbar-thumb {
-  background: #053f05;
+  background: #96d3e3;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-1 bgDark bigHeight">
+  <!-- <div class="col-md-1 bgDark bigHeight">
     <div class="row border-bottom topList">
       <div class="col-3 col-md-12 text-center my-2">
         <img @click="pushToHome()" class="my-1 channelImage selectable" src="src\assets\img\Group 1.png" title="Ripcord"
@@ -10,7 +10,7 @@
       <div class="col-3 col-md-12 text-center mt-2" v-for="c in channels" :key="c.id">
         <ServerList :server="c" />
       </div>
-    </div>
+    </div> -->
     <div v-if="account" class="row bottomList align-items-center">
       <div class="col-10 mx-auto">
         <button class="btn btn-outline buttonText p-0" type="button" data-bs-target="#channelModal"
@@ -18,7 +18,7 @@
           <span>Create <i class="mdi mdi-pencil-outline"></i></span></button>
       </div>
     </div>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>
