@@ -98,11 +98,14 @@ import { Modal } from "bootstrap";
 import { useRouter } from "vue-router";
 import { logger } from "../utils/Logger.js";
 import Pop from "../utils/Pop.js";
+
 export default {
+
 
   setup() {
     const editable = ref({})
     const router = useRouter()
+
 
     watchEffect(() => {
       editable.value = { ...AppState.account }
@@ -141,7 +144,8 @@ export default {
       // }
     }
   }
-};
+}
+
 </script>
 
 

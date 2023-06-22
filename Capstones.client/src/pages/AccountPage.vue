@@ -44,7 +44,7 @@
       </div>
       <div class="col-md-3" v-for="t in studentSessions" :key="t.id">
         {{ t.id }}
-        {{ t.}}
+        {{ t }}
       </div>
     </section>
 

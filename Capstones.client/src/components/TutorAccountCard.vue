@@ -1,6 +1,6 @@
 <template>
   <div class="row m-1 ">
-    <div class="card ">
+    <div class="">
       <div class="d-flex ">
         <img class="img-fluid profile"
           src="https://img.freepik.com/premium-vector/cute-photographer-cartoon-illustration-people-profession-icon-concept_138676-1899.jpg"
@@ -46,4 +46,8 @@ export default {
 
 
 <style lang="scss" scoped>
+.profile {
+  height: 200px;
+  width: 230px;
+}
 </style>
