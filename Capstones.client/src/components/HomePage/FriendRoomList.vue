@@ -24,7 +24,7 @@ import { computed } from "vue";
 import { AppState } from "../../AppState";
 import { logger } from "../../utils/Logger";
 import Pop from "../../utils/Pop";
-import Login from "../../components/Login.vue"
+// import Login from "../../components/Login.vue"
 import { channelsService } from "../../services/ChannelsService";
 import { useRouter } from "vue-router";
 import { roomsService } from "../../services/RoomsService";
