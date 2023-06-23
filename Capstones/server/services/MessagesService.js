@@ -6,7 +6,7 @@ import { BadRequest, Forbidden } from "../utils/Errors.js"
 
 class MessagesService {
   async getOne(messageId) {
-    let message = await dbContext.Messages.findById(messageId).populate("creator", "name picture")
+    let message = await dbContext.Messages.findById(messageId).populate("creator")
     if (message == null) {
       throw new BadRequest("That Message Doesn't Exist")
     }
@@ -14,7 +14,7 @@ class MessagesService {
   }
   async create(messageBody) {
     let message = await dbContext.Messages.create(messageBody)
-    await message.populate("creator", "name picture")
+    await message.populate("creator")
     await message.populate("channel")
     return message
   }
