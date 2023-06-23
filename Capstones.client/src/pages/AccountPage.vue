@@ -2,8 +2,8 @@
   <div class="accountpage">
     <div class="about text-center">
       <h1>Welcome {{ account.name }}</h1>
-      <img class="rounded" :src="account.picture" alt="" />
-      <p>{{ account.email }}</p>
+      <!-- <img class="rounded" :src="account.picture" alt="" /> -->
+      <!-- <p>{{ account.email }}</p> -->
 
     </div>
 
@@ -18,20 +18,23 @@
       <div>
         <h5>My Topics:</h5>
       </div>
-      <div class="col-md-3" v-for="t in myTopics" :key="t.id">
-        <MyTopicsCard :myTopicsProp="t" />
+      <div class="col-12">
+        <div class="" v-for="t in myTopics" :key="t.id">
+          <MyTopicsCard :myTopicsProp="t" />
+        </div>
       </div>
     </section>
     <section class="row">
       <div>
         <h5>My Requests from students:</h5>
       </div>
-      <div class="col-md-3" v-for="t in tutorSessions" :key="t.id">
-
-        <div :class="{ 'bg-danger': t.status == 'denied' }">
-          {{ t.status }}
-          <button>Accept</button>
-          <button @click="t.status = 'denied'">Deny</button>
+      <div class="col-md-3 col-10" v-for="t in tutorSessions" :key="t.id">
+        <div class="card bg-white">
+          <div :class="{ 'bg-danger': t.status == 'denied' }">
+            <p>Session Status: {{ t.status }}</p>
+            <button @click="acceptSession(t, t.id)">Accept</button>
+            <button @click="denySession(t, t.id)">Deny</button>
+          </div>
         </div>
 
       </div>
@@ -41,7 +44,19 @@
         <h5>My requests as a student:</h5>
       </div>
       <div class="col-md-3" v-for="t in studentSessions" :key="t.id">
-        {{ t }}
+        <div class="card bg-white">
+          <p>Session Status: {{ t.status }}</p>
+          <p>Tutor Name: {{ t.tutor.name }}</p>
+          {{ t.tutor.picture }}
+        </div>
+
+        <!-- {{ t.tutor.name }} -->
+        {{ t.topic }}
+        <p>
+
+        </p>
+
+        <!-- <img :src="t.tutor.picture" alt=""> -->
       </div>
     </section>
 
@@ -81,8 +96,11 @@ import { logger } from '../utils/Logger.js';
 import { topicsService } from '../services/TopicsService.js';
 import { sessionsService } from '../services/SessionsService.js';
 import { accountService } from '../services/AccountService.js';
+import Pop from '../utils/Pop.js';
+import { useRoute } from 'vue-router';
 export default {
   setup() {
+    const route = useRoute()
 
     async function getMyTopics() {
       try {
@@ -116,10 +134,36 @@ export default {
 
 
     return {
+      async acceptSession(session, sessionId) {
+        try {
+          session.status = 'confirmed'
+          logger.log('sessionId and session', session, sessionId)
+          // debugger
+          // const sessionId = route.params.id
+          await sessionsService.acceptSession(sessionId)
+          logger.log('CHANGING SESSION TO ACCEPTED')
+        } catch (error) {
+          Pop.error(error)
+        }
+      },
+      async denySession(session, sessionId) {
+        try {
+          session.status = 'denied'
+          logger.log('this session is denied', session, sessionId)
+          await sessionsService.denySession(sessionId)
+          // logger.log('throw me out the building')
+        } catch (error) {
+          Pop.error(error)
+          // logger.log(error)
+        }
+      },
+
+
       account: computed(() => AppState.account),
       myTopics: computed(() => AppState.myTopics),
       tutorSessions: computed(() => AppState.tutorSessions),
-      studentSessions: computed(() => AppState.studentSessions)
+      studentSessions: computed(() => AppState.studentSessions),
+      // session: computed(() => AppState.session)
 
     }
   }
@@ -129,6 +173,11 @@ export default {
 </script>
 
 <style scoped>
+.profile {
+  height: 200px;
+  width: 230px;
+}
+
 img {
   max-width: 100px;
 }

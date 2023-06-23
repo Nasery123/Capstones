@@ -4,6 +4,7 @@ import { BadRequest, Forbidden } from "../utils/Errors.js"
 
 class SessionService {
 
+
   async createSession(topic, userId) {
 
     const sessionData = {
@@ -38,6 +39,13 @@ class SessionService {
     await session.remove()
     return
   }
+  async getSessionById(sessionId) {
+    const session = await dbContext.Sessions.findById(sessionId).populate('student topic tutor')
+    if (!session) {
+      throw new BadRequest('hey this session could not be found')
+    }
+    return session
+  }
 
 
   // async getMyStudentSessions(accountId) {
@@ -54,6 +62,54 @@ class SessionService {
     const topics = await dbContext.Topics.find({ sessionId: sessionId }).populate('session')
     return topics
   }
+  async sessionStatus(sessionId, tutorId, wantsToAccpet) {
+    const originalSession = await this.getSessionById(sessionId)
+    // if (originalSession.creatorId != tutorId) {
+    //   throw new Forbidden('unauthorized to accept / deny request')
+    // }
+
+    if (originalSession.status == 'denied') {
+      throw new BadRequest("this session has already been denied")
+    }
+    if (originalSession.status == 'confirmed') {
+      throw new BadRequest("this session has already been confiremd")
+    }
+    // originalSession.studentId = originalSession.studentId
+    // originalSession.tutorId = originalSession.tutorId
+    // originalSession.sessionId = originalSession.$sessionId
+
+    if (wantsToAccpet) {
+      originalSession.status = 'confirmed'
+
+    }
+    else {
+      originalSession.status = 'denied'
+
+    }
+
+
+
+
+    await originalSession.save()
+    return originalSession
+  }
+
+  // async sessionDenyStatus(sessionId, tutorId, sessionData) {
+  //   const originalSession = await this.getSessionById(sessionId)
+  //   if (originalSession.status == 'denied') {
+  //     throw new BadRequest("this session has already been denied")
+  //   }
+  //   if (originalSession.status == 'confirmed') {
+  //     throw new BadRequest('this session has already been confiremd')
+  //   }
+  //   originalSession.status = 'denied' || originalSession.status
+  //   await originalSession.save()
+  //   return originalSession
+
+
+  // }
+
+
 
 }
 

@@ -1,8 +1,8 @@
 <template>
-  <div class="accountpage">
+  <div class="accountpage ">
     <!-- NOTE the below template is the home view with two buttons for log in and create an account. and three boxes with some text -->
 
-    <div class="row align-items-center">
+    <div class="row ">
       <div class="col-md-8 col-12 justify-content-center align-items-center">
         <div class="text text-center">
 
@@ -19,22 +19,30 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-12 col-md-8 learn-box mt-4 ms-3">
-        <card class="learn">LEARN ABOUT TUBER HERE!</card>
+      <div class="col-12 col-md-8 learn-box mt-4 ms-3 d-flex justify-content-evenly">
+
+        <div class="col-6">
+          <card class="learn">LEARN ABOUT TUBER HERE!</card>
+        </div>
+        <div class="col-4">
+          <img class="giphy"
+            src="https://media1.giphy.com/media/8dYmJ6Buo3lYY/giphy.gif?cid=ecf05e47j3jppd3o5fehzsctm5f9xnawoybg7robqr32zbx3&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+            alt="">
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12 d-flex justify-content-around mt-5">
-        <div>
+  </div>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-around mt-5">
+      <div>
 
-          <button data-bs-toggle="modal" data-bs-target="#editTutor" class="btn btn-primary">Tuber as a Tutor</button>
-          <!-- <button data-bs-toggle="modal" data-bs-target="#editStudent" class="btn btn-primary">Tuber as a Student</button> -->
+        <button data-bs-toggle="modal" data-bs-target="#editTutor" class="btn btn-primary">Tuber as a Tutor</button>
+        <!-- <button data-bs-toggle="modal" data-bs-target="#editStudent" class="btn btn-primary">Tuber as a Student</button> -->
 
 
-        </div>
-        <div>
-          <button class="btn btn-primary">LOG IN</button>
-        </div>
+      </div>
+      <div>
+        <button class="btn btn-primary">LOG IN</button>
       </div>
     </div>
   </div>
@@ -72,6 +80,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
+// .mod {
+//   writing-mode: vertical-lr;
+// }
+.giphy {
+  height: 100px;
+  width: 120px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px lightgray;
+}
+
 .profile {
   width: 80px;
   height: 80px;
@@ -145,8 +163,8 @@ card {
 
 .accountpage {
 
-  // background-image: url('./assets/img/homepage-background.png');
-  background-image: url('https://c4.wallpaperflare.com/wallpaper/704/302/377/digital-art-colorful-minimalism-abstract-wallpaper-preview.jpg');
+  background-image: url('../assets/img/homepage-background.png');
+  // background-image: url('https://c4.wallpaperflare.com/wallpaper/704/302/377/digital-art-colorful-minimalism-abstract-wallpaper-preview.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

@@ -16,6 +16,9 @@ export class SessionsController extends BaseController {
       // .get('/:sessionId/messages', this.findSessionMessages)
       // .delete('/:sessionId/messages', this.deleteMessageThread)
       .get('/:sessionId/topics', this.getSesssionTopic)
+      .put('/:sessionId', this.sessionStatus)
+    // .put('/:sessionId/deny', this.denySession)
+
   }
 
   async createSession(req, res, next) {
@@ -91,4 +94,31 @@ export class SessionsController extends BaseController {
       next(error)
     }
   }
+  async sessionStatus(req, res, next) {
+    try {
+      const wantsToAccpet = req.body.status
+      const sessionId = req.params.sessionId
+      const tutorId = req.userInfo.id
+      const session = await sessionService.sessionStatus(sessionId, tutorId, wantsToAccpet)
+      return res.send(session)
+    } catch (error) {
+      next(error)
+    }
+
+
+
+
+
+  }
+  // async denySession(req, res, next) {
+  //   try {
+  //     const sessionData = req.body
+  //     const sessionId = req.params.sessionId
+  //     const tutorId = req.userInfo.id
+  //     const session = await sessionService.sessionDenyStatus(sessionId, tutorId, sessionData)
+  //     return res.send(session)
+  //   } catch (error) {
+  //     next(error)
+  //   }
+  // }
 }

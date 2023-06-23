@@ -43,6 +43,7 @@ class AccountService {
   async getStudentSessions() {
     const res = await api.get('account/student/sessions')
     AppState.studentSessions = res.data
+    logger.log('res .data in console', res.data)
   }
 
 

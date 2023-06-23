@@ -23,6 +23,7 @@ export const AppState = reactive({
   editChannel: null,
     /** @type {import('./models/Friend.js').Friend||null} */
   friend: null,
+  session: {},
   studentSessions: [],
   tutorSessions: []
   
