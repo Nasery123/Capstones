@@ -6,7 +6,7 @@
       <div class="col-md-8 col-12 justify-content-center align-items-center">
         <div class="text text-center">
 
-          <p class="welcom"> Welcome to TUber</p>
+          <div class="welcom"> Welcome to TUber</div>
 
         </div>
       </div>
@@ -15,35 +15,37 @@
     <div class="row">
       <div class="col-md-8 col-12 mt-4">
         <div class="text align-items-center">
-          <p class="welcom"> Tutoring on Demand</p>
+          <div class="welcom"> Tutoring on Demand</div>
         </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-8 col-12  mt-4 ">
-        <div class="d-flex text align-items-center justify-content-center ">
-          <p class="welcom">LEARN ABOUT TUBER HERE!</p>
-        </div>
-      </div>
+    <div class="col-6">
+      <div class="learn">LEARN ABOUT TUBER HERE!</div>
     </div>
+    <div class="col-4">
+      <img class="giphy"
+        src="https://media1.giphy.com/media/8dYmJ6Buo3lYY/giphy.gif?cid=ecf05e47j3jppd3o5fehzsctm5f9xnawoybg7robqr32zbx3&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        alt="">
+    </div>
+  </div>
+  </div>
 
-    <div class="row">
-      <div class="col-12 d-flex justify-content-around mt-5">
-        <div>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-around mt-5">
+      <div>
 
-          <button data-bs-toggle="modal" data-bs-target="#editTutor" class="btn btn-primary">Tuber as a Tutor</button>
-          <!-- <button data-bs-toggle="modal" data-bs-target="#editStudent" class="btn btn-primary">Tuber as a Student</button> -->
+        <button data-bs-toggle="modal" data-bs-target="#editTutor" class="btn btn-primary">Tuber as a Tutor</button>
+        <!-- <button data-bs-toggle="modal" data-bs-target="#editStudent" class="btn btn-primary">Tuber as a Student</button> -->
 
 
-        </div>
-        <div>
-          <button class="btn btn-primary">LOG IN</button>
-        </div>
+      </div>
+      <div>
+        <button class="btn btn-primary">LOG IN</button>
       </div>
     </div>
   </div>
-</template>
+</div></template>
 
 <script>
 import { computed } from "vue";

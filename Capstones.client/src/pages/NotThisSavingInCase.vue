@@ -40,7 +40,7 @@ import RoomForm from "../components/Forms/RoomForm.vue";
 import { useRoute, useRouter } from "vue-router";
 import { roomsService } from "../services/RoomsService";
 import { socketService } from "../services/SocketService"
-import { adsService } from "../services/AdsService";
+// import { adsService } from "../services/AdsService";
 import { router } from "../router.js";
 export default {
     setup() {
@@ -65,7 +65,7 @@ export default {
                 getChannels()
                 getChannel()
                 getMessages()
-                getAds()
+                // getAds()
             }
         })
         function leaveRoom(roomId) {
@@ -118,14 +118,14 @@ export default {
                 Pop.error(('[ERROR]'), error.message)
             }
         }
-        async function getAds() {
-            try {
-                await adsService.getAds()
-            } catch (error) {
-                logger.error('[ERROR]', error)
-                Pop.error(('[ERROR]'), error.message)
-            }
-        }
+        // async function getAds() {
+        //     try {
+        //         await adsService.getAds()
+        //     } catch (error) {
+        //         logger.error('[ERROR]', error)
+        //         Pop.error(('[ERROR]'), error.message)
+        //     }
+        // }
         return {
         };
     },

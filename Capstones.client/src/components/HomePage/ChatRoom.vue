@@ -1,24 +1,24 @@
 <template>
   <div v-if="!channel" class="col-md-6 bgLight verticalScroll">
-    <h1>Hello {{ account.name }}</h1>
+    <h1>Welcome, {{ account.name }}</h1>
   </div>
   <div v-else class="col-md-6 bgLight verticalScroll">
     <div class="row">
       <div v-if="account" class="col-12">
-        <h1># {{ account.Profile.name }}</h1>
+        <h1># {{ account.name }}</h1>
       </div>
       <div v-else class="col-12">
-        <h1># {{ room.title }}</h1>
+        <h1># {{ channel.name }}</h1>
       </div>
     </div>
     <div class="row bg-light m-2 rounded d-flex align-items-center" v-for="m in messages" :key="m.id">
       <div class="col-1 me-3">
-        <img class="profilePicture" :src=m.Creator.picture alt="">
+        <img class="profilePicture" :src=m.creator.picture alt="">
       </div>
       <div class="col-10">
         <div class="row">
           <div class="col-12 mt-2">
-            <h6>{{ m.Creator.name }}</h6>
+            <h6>{{ m.creator.name }}</h6>
           </div>
           <div class="col-12">
             <p>{{ m.body }}</p>
@@ -55,13 +55,13 @@ export default {
 
 
     return {
-      room: computed(() => AppState.room),
+      channel: computed(() => AppState.channel),
       messages: computed(() => AppState.messages),
-      friend: computed(() => AppState.friend),
+      // friend: computed(() => AppState.friend),
       account: computed(() => AppState.account),
       editable,
 
-      async createMessage() {
+      async createMessage(channelId) {
         try {
           let messageData = editable.value
           messageData.roomId = route.params.id
@@ -86,24 +86,24 @@ export default {
 }
 
 .bgLight {
-  background-color: #040404;
-  color: rgb(245, 245, 245);
+  background-color: #1d4d58;
+  color: whitesmoke;
 }
 
 .verticalScroll {
   overflow-x: hidden;
   height: 100dvh;
   overflow-y: scroll;
-  border-right: #96d3e3 2px solid;
+  border-right: #660404 2px solid;
 }
 
 .verticalScroll::-webkit-scrollbar {
   width: 2px;
   height: 5dvh;
-  background-color: #96d3e3;
+  background-color: #370466;
 }
 
 .verticalScroll::-webkit-scrollbar-thumb {
-  background: #96d3e3;
+  background: #370466;
 }
 </style>

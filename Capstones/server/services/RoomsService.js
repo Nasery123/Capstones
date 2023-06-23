@@ -1,9 +1,10 @@
 import { dbContext } from "../db/DbContext";
 import { BadRequest, Forbidden } from "../utils/Errors";
-class RoomsService {
+
+class RoomsService{
   async getFriendRoom(channelId) {
-    let room = await dbContext.Rooms.findOne({ channelId }).populate("creator", 'name picture').populate("channel", 'name description creatorId')
-    if (room == null) {
+    let room = await dbContext.Rooms.findOne({channelId}).populate("creator", 'name picture').populate("channel", 'name description creatorId')
+    if(room == null) {
       throw new BadRequest("Sorry, that room doesn't exist.")
     }
     return room
@@ -12,9 +13,10 @@ class RoomsService {
     let rooms = await dbContext.Rooms.find().populate("creator", 'name picture').populate("channel", 'name description creatorId')
     return rooms
   }
+
   async getOne(roomId) {
     let room = await dbContext.Rooms.findById(roomId).populate("creator", 'name picture').populate("channel", 'name description creatorId')
-    if (room == null) {
+    if(room == null) {
       throw new BadRequest('Sorry, there is no Room with that Id.')
     }
     return room
@@ -27,7 +29,7 @@ class RoomsService {
   }
   async edit(roomData) {
     let originalRoom = await this.getOne(roomData.id)
-    if (originalRoom.creatorId != roomData.creatorId) {
+    if(originalRoom.creatorId != roomData.creatorId) {
       throw new Forbidden('Sorry, you do not have permission to edit this.')
     }
     originalRoom.title = roomData.title || originalRoom.title
@@ -36,20 +38,21 @@ class RoomsService {
   }
   async delete(roomId, userId) {
     let room = await this.getOne(roomId)
-    if (room.creatorId != userId) {
+    if(room.creatorId != userId) {
       throw new Forbidden('Sorry, you do not have permission to delete this.')
     }
     await room.remove()
     return `Successfully removed room ${room.title}.`
   }
-  // SECTION MESSAGES
+
   async getMessages(roomId) {
-    let messages = await dbContext.Messages.find({ roomId }).populate("creator", 'picture name')
+    let messages = await dbContext.Messages.find({roomId}).populate("creator", 'picture name')
     return messages
   }
-}
-export const roomsService = new RoomsService()
 
+}
+
+export const roomsService = new RoomsService()
 
 
 

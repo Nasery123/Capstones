@@ -1,8 +1,8 @@
 <template>
-  <!-- <div class="col-md-1 bgDark bigHeight">
+  <div class="col-md-1 bgDark bigHeight">
     <div class="row border-bottom topList">
       <div class="col-3 col-md-12 text-center my-2">
-        <img @click="pushToHome()" class="my-1 channelImage selectable" src="src\assets\img\Group 1.png" title="Ripcord"
+        <img @click="pushToHome()" class="my-1 channelImage selectable" src="src\assets\img\homeIcon.png" title="Tuber"
           alt="Channel Image" srcset="">
       </div>
     </div>
@@ -10,7 +10,7 @@
       <div class="col-3 col-md-12 text-center mt-2" v-for="c in channels" :key="c.id">
         <ServerList :server="c" />
       </div>
-    </div> -->
+    </div>
     <div v-if="account" class="row bottomList align-items-center">
       <div class="col-10 mx-auto">
         <button class="btn btn-outline buttonText p-0" type="button" data-bs-target="#channelModal"
@@ -18,7 +18,7 @@
           <span>Create <i class="mdi mdi-pencil-outline"></i></span></button>
       </div>
     </div>
-  <!-- </div> -->
+  </div>
 </template>
 
 <script>
@@ -26,7 +26,7 @@ import { computed } from "vue";
 import { AppState } from "../../AppState";
 import { logger } from "../../utils/Logger";
 import Pop from "../../utils/Pop";
-import ServerList from "../MessageStuff/ServerList.vue";
+import ServerList from "../HomePage/ServerList.vue";
 import { router } from "../../router";
 
 export default {
@@ -58,7 +58,7 @@ export default {
 
 <style scoped>
 .bgDark {
-  background-color: #0d1c16;
+  background-color: #1d4d58;
   color: whitesmoke;
 }
 
@@ -84,7 +84,7 @@ export default {
 
 .bottomList {
   height: 10%;
-  background-color: #13251f;
+  background-color: #0a131d;
 }
 
 .verticalScroll {
@@ -95,11 +95,11 @@ export default {
 .verticalScroll::-webkit-scrollbar {
   width: 2px;
   height: 5dvh;
-  background-color: #053f0500;
+  background-color: #180c5e;
 }
 
 .verticalScroll::-webkit-scrollbar-thumb {
-  background: #053f0500;
+  background: #180c5e;
 }
 
 .buttonText {

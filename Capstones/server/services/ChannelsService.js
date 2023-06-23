@@ -8,7 +8,6 @@ class ChannelsService {
     let channels = await dbContext.Channels.find().populate("creator", 'name picture')
     return channels
   }
-  // GET BY ID
   async getOne(channelId) {
     let channel = await dbContext.Channels.findById(channelId).populate("creator", 'name picture')
     if (channel == null) {
@@ -16,7 +15,6 @@ class ChannelsService {
     }
     return channel
   }
-  // CREATE
   async create(channelBody) {
     let channel = await dbContext.Channels.create(channelBody)
     await channel.populate("creator", 'name, picture')
@@ -27,19 +25,17 @@ class ChannelsService {
     await roomsService.create(roomData)
     return channel
   }
-  // EDIT
   async edit(channelBody) {
     let originalChannel = await this.getOne(channelBody.id)
     if (channelBody.creatorId != originalChannel.creatorId) {
       throw new Forbidden('Sorry, something went wrong.')
     }
     originalChannel.name = channelBody.name || originalChannel.name,
-      originalChannel.description = channelBody.description || originalChannel.description,
-      originalChannel.img = channelBody.img || originalChannel.img
+    originalChannel.description = channelBody.description || originalChannel.description,
+    originalChannel.img = channelBody.img || originalChannel.img
     await originalChannel.save();
     return originalChannel
   }
-  // DELETE
   async delete(channelId, creatorId) {
     let channel = await this.getOne(channelId)
     if (channel.creatorId != creatorId) {
@@ -48,13 +44,11 @@ class ChannelsService {
     await channel.remove()
     return `Channel: ${channel.name} has been successfully removed.`
   }
-  // SECTION MESSAGES
   async getMessages(channelId) {
     let messages = await dbContext.Messages.find({ channelId })
       .populate("creator", 'name picture')
     return messages
   }
-  // SECTION ROOMS
   async getRooms(channelId) {
     let rooms = await dbContext.Rooms.find({ channelId }).populate("creator", 'name picture').populate("channel", 'name description creatorId')
     return rooms

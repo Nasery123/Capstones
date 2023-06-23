@@ -1,7 +1,7 @@
 <template>
   <div class=" col-md-3 bgLight">
     <div class="row ">
-      <div class="col-12" v-for="a in ads" :key="a.id">
+      <!-- <div class="col-12" v-for="a in ads" :key="a.id">
         <div class="row justify-content-center">
           <div class="d-none d-md-block col-8 mt-4">
             <img class="img-fluid" :src=a.tall alt="">
@@ -10,7 +10,7 @@
             <img class="img-fluid" :src=a.banner alt="">
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -32,7 +32,7 @@ export default {
 
     return {
       users: computed(() => AppState.users),
-      ads: computed(() => AppState.ads)
+      // ads: computed(() => AppState.ads)
 
     }
   }
@@ -48,7 +48,7 @@ export default {
 }
 
 .bgLight {
-  background-color: #3a1c3a;
-  color: #3a1c3a;
+  background-color: #15283d;
+  color: whitesmoke;
 }
 </style>
