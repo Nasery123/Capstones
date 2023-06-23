@@ -94,20 +94,20 @@ class SessionService {
     return originalSession
   }
 
-  async sessionDenyStatus(sessionId, tutorId, sessionData) {
-    const originalSession = await this.getSessionById(sessionId)
-    if (originalSession.status == 'denied') {
-      throw new BadRequest("this session has already been denied")
-    }
-    if (originalSession.status == 'confirmed') {
-      throw new BadRequest('this session has already been confiremd')
-    }
-    originalSession.status = 'denied' || originalSession.status
-    await originalSession.save()
-    return originalSession
+  // async sessionDenyStatus(sessionId, tutorId, sessionData) {
+  //   const originalSession = await this.getSessionById(sessionId)
+  //   if (originalSession.status == 'denied') {
+  //     throw new BadRequest("this session has already been denied")
+  //   }
+  //   if (originalSession.status == 'confirmed') {
+  //     throw new BadRequest('this session has already been confiremd')
+  //   }
+  //   originalSession.status = 'denied' || originalSession.status
+  //   await originalSession.save()
+  //   return originalSession
 
 
-  }
+  // }
 
 
 

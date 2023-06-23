@@ -1,8 +1,8 @@
 <template>
-  <div class="accountpage">
+  <div class="accountpage ">
     <!-- NOTE the below template is the home view with two buttons for log in and create an account. and three boxes with some text -->
 
-    <div class="row align-items-center">
+    <div class="row ">
       <div class="col-md-8 col-12 justify-content-center align-items-center">
         <div class="text text-center">
 
@@ -163,8 +163,8 @@ card {
 
 .accountpage {
 
-  // background-image: url('./assets/img/homepage-background.png');
-  background-image: url('https://c4.wallpaperflare.com/wallpaper/704/302/377/digital-art-colorful-minimalism-abstract-wallpaper-preview.jpg');
+  background-image: url('../assets/img/homepage-background.png');
+  // background-image: url('https://c4.wallpaperflare.com/wallpaper/704/302/377/digital-art-colorful-minimalism-abstract-wallpaper-preview.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

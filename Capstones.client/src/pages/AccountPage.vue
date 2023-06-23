@@ -43,8 +43,14 @@
         <h5>My requests as a student:</h5>
       </div>
       <div class="col-md-3" v-for="t in studentSessions" :key="t.id">
-        {{ t.id }}
-        {{ t }}
+        <!-- {{ t }} -->
+        <!-- {{ t.tutor.name }} -->
+        {{ t.topic }}
+        <p>
+
+        </p>
+
+        <!-- <img :src="t.tutor.picture" alt=""> -->
       </div>
     </section>
 
