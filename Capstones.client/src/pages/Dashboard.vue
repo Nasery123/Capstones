@@ -1,12 +1,12 @@
 <template>
     <div class="dashboard"
         style="background-image: url('https://images.pexels.com/photos/3825880/pexels-photo-3825880.jpeg?cs=srgb&dl=pexels-evie-shaffer-3825880.jpg&fm=jpg');">
-        <p>
+        <p class="text-center">
             students home page
         </p>
         <!-- NOTE student DASHBOARD  -->
         <div class="container-fluid ">
-            <div class="row ">
+            <!-- <div class="row ">
                 <div class="col-12">
                     <div class="d-flex justify-content-evenly">
                         <div>
@@ -15,7 +15,7 @@
                         <div class="btn btn-primary">TUTOR</div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div v-if="account.isTutor == false" class="row justify-content-center py-3">
                 <card class="card py-3 ">
                     <div class="">
@@ -53,10 +53,9 @@
                 </card>
             </div>
         </div>
-
-        <div>
+        <div v-for="t in topics" :key="t.id">
             <!-- {{ topics.tutor.name }} -->
-            <SessionCard v-for="  t   in   topics  " :key="t.id" :topicsProp="t" />
+            <SessionCard :topicsProp="t" />
         </div>
 
 
@@ -137,7 +136,7 @@ export default {
 
         }
 
-}
+    }
 
 
 };
