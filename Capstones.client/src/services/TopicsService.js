@@ -11,7 +11,7 @@ class TopicService {
     // const res = await api.get(`api/topics?subject=${searchSubject}`)
     const res = await api.get('api/topics', {
       params: {
-        subject: searchSubject
+        subject: searchSubject,
         // level: searchLevel
       }
     })

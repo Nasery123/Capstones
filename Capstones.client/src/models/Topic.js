@@ -8,6 +8,5 @@ export class Topic {
     this.accountId = data.accountId
     this.level = data.level
     this.tutor = new Profile(data.tutor)
-    this.topic = new Topic(data.topic)
   }
 }

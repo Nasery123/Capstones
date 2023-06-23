@@ -6,6 +6,7 @@
     <router-view />
   </main>
   <footer class="bg-dark text-light">
+    <!-- import EditTutorForm from './components/EditTutorForm.vue.js' -->
     <div class="d-flex space-around">
 
       <router-link :to="{ name: 'Home' }">
@@ -25,11 +26,18 @@
         <h3><i class="mdi mdi-account"></i></h3>
       </router-link>
     </div>
-    
+
   </footer>
 
   <Modal id="editTutor">
-    <EditTutorForm />
+    <!-- <EditTutorForm /> -->
+    <template #header>
+      <div>Create User</div>
+    </template>
+
+    <template #body>
+      <EditTutorForm />
+    </template>
   </Modal>
   <Modal id="editStudent">
     <EditStudentForm />
@@ -37,8 +45,8 @@
   <Modal id="tutorSubject">
     <TutorSubjectForm />
   </Modal>
-  
-    <Modal id="channelModal">
+
+  <Modal id="channelModal">
     <template #header>
       <div>Create Channel</div>
     </template>
@@ -47,7 +55,6 @@
       <ChannelForm />
     </template>
   </Modal>
-
 </template>
 
 <script>
@@ -56,6 +63,7 @@ import { AppState } from './AppState'
 import Navbar from './components/Navbar.vue'
 import ChannelForm from "./components/Forms/ChannelForm.vue"
 import Modal from "./components/Util/Modal.vue"
+
 import RoomForm from "./components/Forms/RoomForm.vue"
 
 export default {
@@ -67,6 +75,7 @@ export default {
   components: { Navbar, Modal, ChannelForm }
 }
 </script>
+
 <style lang="scss">
 @import "./assets/scss/main.scss";
 
