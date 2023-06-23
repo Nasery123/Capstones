@@ -111,14 +111,12 @@ export default {
         Pop.error(('[ERROR]'), error.message)
       }
     }
-
-    onMounted(()=>{
-      joinRoom()
+onMounted(()=> {
+         joinRoom()
       getChannels()
       getChannel()
       getMessages()
-    })
-
+})
     return {
     };
   },
