@@ -6,43 +6,40 @@
       <div class="col-md-8 col-12 justify-content-center align-items-center">
         <div class="text text-center">
 
-          <card class="welcom"> Welcome to TUber</card>
+          <p class="welcom"> Welcome to TUber</p>
 
         </div>
       </div>
     </div>
+
     <div class="row">
       <div class="col-md-8 col-12 mt-4">
         <div class="text align-items-center">
-          <card class="welcom"> Tutoring on Demand</card>
+          <p class="welcom"> Tutoring on Demand</p>
         </div>
       </div>
     </div>
+
     <div class="row">
-      <div class="col-12 col-md-8 learn-box mt-4 ms-3 d-flex justify-content-evenly">
-
-        <div class="col-6">
-          <card class="learn">LEARN ABOUT TUBER HERE!</card>
-        </div>
-        <div class="col-4">
-          <img class="giphy"
-            src="https://media1.giphy.com/media/8dYmJ6Buo3lYY/giphy.gif?cid=ecf05e47j3jppd3o5fehzsctm5f9xnawoybg7robqr32zbx3&ep=v1_gifs_search&rid=giphy.gif&ct=g"
-            alt="">
+      <div class="col-md-8 col-12  mt-4 ">
+        <div class="d-flex text align-items-center justify-content-center ">
+          <p class="welcom">LEARN ABOUT TUBER HERE!</p>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12 d-flex justify-content-around mt-5">
-      <div>
 
-        <button data-bs-toggle="modal" data-bs-target="#editTutor" class="btn btn-primary">Tuber as a Tutor</button>
-        <!-- <button data-bs-toggle="modal" data-bs-target="#editStudent" class="btn btn-primary">Tuber as a Student</button> -->
+    <div class="row">
+      <div class="col-12 d-flex justify-content-around mt-5">
+        <div>
+
+          <button data-bs-toggle="modal" data-bs-target="#editTutor" class="btn btn-primary">Tuber as a Tutor</button>
+          <!-- <button data-bs-toggle="modal" data-bs-target="#editStudent" class="btn btn-primary">Tuber as a Student</button> -->
 
 
-      </div>
-      <div>
-        <button class="btn btn-primary">LOG IN</button>
+        </div>
+        <div>
+          <button class="btn btn-primary">LOG IN</button>
+        </div>
       </div>
     </div>
   </div>
@@ -83,12 +80,7 @@ export default {
 // .mod {
 //   writing-mode: vertical-lr;
 // }
-.giphy {
-  height: 100px;
-  width: 120px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 2px lightgray;
-}
+
 
 .profile {
   width: 80px;
@@ -96,14 +88,12 @@ export default {
   border-radius: 50%;
 }
 
-input {
-  width: 270px;
-}
+// input {
+//   width: 270px;
+// }
+// .box {}
 
-.card {
-  width: 65vh;
-  align-items: center;
-}
+
 
 .text {
   box-sizing: border-box;
@@ -113,6 +103,7 @@ input {
   display: flex;
   align-items: center;
   border-radius: 10px;
+  margin: 1em;
 }
 
 .welcom {
@@ -127,49 +118,28 @@ input {
 
 }
 
-.learn {
-  position: absolute;
-  color: white;
-
-  text-transform: uppercase;
-  font-size: large;
-  font-weight: bold;
-
-
-
-}
-
-.learn-box {
-  box-sizing: border-box;
-  border: 2px solid orange;
-  min-width: 300px;
-  height: 15vh;
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
-  // margin-left: 50px;
-
-
-}
-
-card {
-  background: rgba(58, 30, 3, 0.7);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(6.1px);
-  -webkit-backdrop-filter: blur(6.1px);
-  border: 1px solid rgba(58, 30, 3, 0.22);
-}
-
 .accountpage {
 
-  background-image: url('../assets/img/homepage-background.png');
-  // background-image: url('https://c4.wallpaperflare.com/wallpaper/704/302/377/digital-art-colorful-minimalism-abstract-wallpaper-preview.jpg');
+  // background-image: url('../assets/img/homepage-background.png');
+  background-image: url('https://images.unsplash.com/photo-1512850183-6d7990f42385?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dmVydGljYWwlMjB3YWxscGFwZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 
+
 }
+
+
+
+// card {
+//   background: rgba(58, 30, 3, 0.7);
+//   border-radius: 16px;
+//   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+//   backdrop-filter: blur(6.1px);
+//   -webkit-backdrop-filter: blur(6.1px);
+//   border: 1px solid rgba(58, 30, 3, 0.22);
+// }
+
 
 
 // .carousel-item {
@@ -206,20 +176,20 @@ card {
 //   text-align: center;
 //   user-select: none;
 
-.home-card {
-  width: 50vw;
+// .home-card {
+//   width: 50vw;
 
 
-  >img {
-    // height: 200px;
-    // max-width: 200px;
-    // width: 100%;
-    // object-fit: contain;
-    // object-position: center;
-  }
-
-
+>img {
+  // height: 200px;
+  // max-width: 200px;
+  // width: 100%;
+  // object-fit: contain;
+  // object-position: center;
 }
+
+
+// }
 
 //TODO - move dash background img to dashboard page once created
 // .dash-background-img {
