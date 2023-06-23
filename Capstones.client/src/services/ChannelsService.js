@@ -24,7 +24,7 @@ class ChannelsService {
   //   AppState.users = res.data.map((u) => new User(u));
   // }
   async getMessages() {
-    const res = await api.get("api/channels/channelId/messages");
+    const res = await api.get(`api/channels/64359c414dc0b5da04e9666e/messages`);
     let messages = res.data.map((m) => new Message(m));
     logger.log(messages);
   }
@@ -35,6 +35,7 @@ class ChannelsService {
   }
   async create(channelBody) {
     const res = await api.post("api/channels", channelBody);
+    logger.log('created channel', res.data)
 
   }
   async edit(channelBody) {
