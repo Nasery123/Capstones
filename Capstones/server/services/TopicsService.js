@@ -31,7 +31,7 @@ class TopicsService {
   }
 
   async getAccountTopics(accountId) {
-    const topics = await dbContext.Topics.find({ accountId: accountId }).populate('tutor topic')
+    const topics = await dbContext.Topics.find({ accountId: accountId }).populate('tutor topics')
     return topics
   }
 

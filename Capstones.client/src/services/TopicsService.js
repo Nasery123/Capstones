@@ -30,7 +30,7 @@ class TopicService {
   }
 
   async getMyTopics() {
-    const res = await api.get(`account/topics`)
+    const res = await api.get('account/topics')
     logger.log('[GETTING MY TOPICS]', res.data)
     // AppState.myTopics = res.data
     AppState.myTopics = res.data.map(t => new Topic(t))
