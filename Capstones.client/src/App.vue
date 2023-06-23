@@ -42,6 +42,7 @@
   <Modal id="editStudent">
     <EditStudentForm />
   </Modal>
+  
   <Modal id="tutorSubject">
     <template #body>
     <TutorSubjectForm />
