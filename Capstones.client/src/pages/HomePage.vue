@@ -6,7 +6,7 @@
       <div class="col-md-8 col-12 justify-content-center align-items-center">
         <div class="text text-center">
 
-          <card class="welcom"> Welcome to TUber</card>
+          <div class="welcom"> Welcome to TUber</div>
 
         </div>
       </div>
@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-md-8 col-12 mt-4">
         <div class="text align-items-center">
-          <card class="welcom"> Tutoring on Demand</card>
+          <div class="welcom"> Tutoring on Demand</div>
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
       <div class="col-12 col-md-8 learn-box mt-4 ms-3 d-flex justify-content-evenly">
 
         <div class="col-6">
-          <card class="learn">LEARN ABOUT TUBER HERE!</card>
+          <div class="learn">LEARN ABOUT TUBER HERE!</div>
         </div>
         <div class="col-4">
           <img class="giphy"
