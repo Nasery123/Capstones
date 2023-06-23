@@ -1,7 +1,8 @@
 <template>
   <div class="modal-content">
     <div class="modal-header">
-      <h1 class="modal-title fs-5" id="eventModal">Create User</h1>
+      <h1 class="modal-title fs-5">Create User</h1>
+      <!-- id="eventModal" put this content in the upper line -->
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <!-- <form @submit.prevent=" createUser()"> -->
@@ -30,27 +31,7 @@
           <label for="floatingPassword">School Name</label>
         </div>
 
-        <!-- <div class="form-floating mb-3">
-          <label for="">Subject</label>
-          <select v-model="editable.subject" class="form-select" aria-label="Default select example">
-            <option>Math</option>
-            <option>English</option>
-            <option>Science</option>
-            <option>Econ</option>
-            <option>Art</option>
-          </select>
-        </div>
 
-        <div class="form-floating mb-3">
-          <label placeholder="Subject Level" for="level">Subject Level</label>
-          <select v-model="editable.level" class="form-select" aria-label="Default select example">
-            <option>100</option>
-            <option>200</option>
-            <option>300</option>
-            <option>400</option>
-            <option>500</option>
-          </select>
-        </div> -->
 
 
         <!-- <div class="form-floating mb-3">

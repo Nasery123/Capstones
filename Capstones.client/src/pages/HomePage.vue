@@ -1,5 +1,5 @@
 <template>
-  <div class="accountpage ">
+  <div class="accountpage container-fluid">
     <!-- NOTE the below template is the home view with two buttons for log in and create an account. and three boxes with some text -->
 
     <div class="row ">
@@ -23,25 +23,30 @@
     <div class="col-6">
       <div class="learn">LEARN ABOUT TUBER HERE!</div>
     </div>
+    <div class="col-4">
+      <img class="giphy"
+        src="https://media1.giphy.com/media/8dYmJ6Buo3lYY/giphy.gif?cid=ecf05e47j3jppd3o5fehzsctm5f9xnawoybg7robqr32zbx3&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        alt="">
+    </div>
   </div>
-  <!-- </div> -->
+  </div>
 
   <div class="row">
     <div class="col-12 d-flex justify-content-around mt-5">
-      <div>
+      <!-- <div> -->
 
-        <button data-bs-toggle="modal" data-bs-target="#editTutor" class="btn btn-primary">Tuber as a Tutor</button>
-        <!-- <button data-bs-toggle="modal" data-bs-target="#editStudent" class="btn btn-primary">Tuber as a Student</button> -->
+      <button data-bs-toggle="modal" data-bs-target="#editTutor" class="btn btn-primary">Tuber as a Tutor</button>
+      <!-- <button data-bs-toggle="modal" data-bs-target="#editStudent" class="btn btn-primary">Tuber as a Student</button> -->
 
 
-      </div>
+      <!-- </div> -->
       <div>
         <button class="btn btn-primary">LOG IN</button>
       </div>
     </div>
+    <!-- </div> -->
   </div>
-  <!-- </div> -->
-</template>
+</div></div></template>
 
 <script>
 import { computed } from "vue";
@@ -123,7 +128,7 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-
+  min-height: 89.6vh;
 
 }
 

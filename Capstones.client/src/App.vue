@@ -25,20 +25,20 @@
         <h3><i class="mdi mdi-account"></i></h3>
       </router-link>
     </div>
-    
+
   </footer>
 
   <Modal id="editTutor">
     <EditTutorForm />
   </Modal>
-  <Modal id="editStudent">
+  <!-- <Modal id="editStudent">
     <EditStudentForm />
   </Modal>
   <Modal id="tutorSubject">
     <TutorSubjectForm />
   </Modal>
-  
-    <Modal id="channelModal">
+
+    <Modal id="channelModal">s
     <template #header>
       <div>Create Channel</div>
     </template>
@@ -46,8 +46,7 @@
     <template #body>
       <ChannelForm />
     </template>
-  </Modal>
-
+  </Modal> -->
 </template>
 
 <script>
