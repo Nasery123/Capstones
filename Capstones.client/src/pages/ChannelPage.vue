@@ -112,6 +112,13 @@ export default {
       }
     }
 
+    onMounted(()=>{
+      joinRoom()
+      getChannels()
+      getChannel()
+      getMessages()
+    })
+
     return {
     };
   },

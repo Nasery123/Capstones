@@ -11,7 +11,7 @@ export const MessageSchema = new Schema({
   creatorId: { type: Schema.Types.ObjectId, required: true, ref: "Account" },
   roomId: {type: Schema.Types.ObjectId, required: true, ref: "Room"},
   friendId: { type: Schema.Types.ObjectId, ref: "Friend" }
-}, { timestamps: true, toJson: { virtuals: true } })
+}, { timestamps: true, toJSON: { virtuals: true } })
 
 MessageSchema.virtual('creator', {
   localField: 'creatorId',
