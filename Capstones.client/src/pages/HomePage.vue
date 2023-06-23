@@ -29,7 +29,7 @@
         alt="">
     </div>
   </div>
-  </div>
+  <!-- </div> -->
 
   <div class="row">
     <div class="col-12 d-flex justify-content-around mt-5">
@@ -45,7 +45,8 @@
       </div>
     </div>
   </div>
-</div></template>
+<!-- </div> -->
+</template>
 
 <script>
 import { computed } from "vue";
