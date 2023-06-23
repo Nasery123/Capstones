@@ -46,6 +46,11 @@ const routes = [
     component: loadPage('SessionMessagePage'),
     beforeEnter:authGuard
   },
+    {
+    path: "/channel/@me/:id",
+    name: "Friend",
+    component: loadPage("FriendPage"),
+  },
 
 ]
 

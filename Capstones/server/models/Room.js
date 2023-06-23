@@ -4,6 +4,7 @@ export const RoomsSchema = new Schema({
   creatorId: { type: Schema.Types.ObjectId, required: true, ref: "Account" },
   channelId: { type: Schema.Types.ObjectId, required: true, ref: "Channel" }
 }, { timestamps: true, toJSON: { virtuals: true } })
+
 RoomsSchema.virtual("creator", {
   localField: "creatorId",
   foreignField: "_id",
