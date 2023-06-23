@@ -53,10 +53,9 @@
                 </card>
             </div>
         </div>
-
-        <div>
+        <div v-for="t in topics" :key="t.id">
             <!-- {{ topics.tutor.name }} -->
-            <SessionCard v-for="  t   in   topics  " :key="t.id" :topicsProp="t" />
+            <SessionCard :topicsProp="t" />
         </div>
 
 
