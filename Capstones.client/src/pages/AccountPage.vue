@@ -28,12 +28,13 @@
       <div>
         <h5>My Requests from students:</h5>
       </div>
-      <div class="col-md-3" v-for="t in tutorSessions" :key="t.id">
-
-        <div :class="{ 'bg-danger': t.status == 'denied' }">
-          {{ t.status }}
-          <button @click="acceptSession(t, t.id)">Accept</button>
-          <button @click="denySession(t, t.id)">Deny</button>
+      <div class="col-md-3 col-10" v-for="t in tutorSessions" :key="t.id">
+        <div class="card bg-white">
+          <div :class="{ 'bg-danger': t.status == 'denied' }">
+            <p>Session Status: {{ t.status }}</p>
+            <button @click="acceptSession(t, t.id)">Accept</button>
+            <button @click="denySession(t, t.id)">Deny</button>
+          </div>
         </div>
 
       </div>
@@ -43,7 +44,12 @@
         <h5>My requests as a student:</h5>
       </div>
       <div class="col-md-3" v-for="t in studentSessions" :key="t.id">
-        <!-- {{ t }} -->
+        <div class="card bg-white">
+          <p>Session Status: {{ t.status }}</p>
+          <p>Tutor Name: {{ t.tutor.name }}</p>
+          {{ t.tutor.picture }}
+        </div>
+
         <!-- {{ t.tutor.name }} -->
         {{ t.topic }}
         <p>
