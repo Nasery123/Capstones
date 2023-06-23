@@ -48,11 +48,7 @@
       </div>
     </div>
   </div>
-<<<<<<< HEAD
 <!-- </div> -->
-=======
-  <!-- </div> -->
->>>>>>> bde6d06d90a9b868d6f14995441c30e017febae8
 </template>
 
 <script>
