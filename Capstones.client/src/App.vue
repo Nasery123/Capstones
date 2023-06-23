@@ -17,7 +17,7 @@
       </router-link>
 
 
-      <router-link :to="{ name: 'Channel' }">
+      <router-link :to="{ name: 'HubPage' }">
         <h3><i class="mdi mdi-message"></i></h3>
       </router-link>
 

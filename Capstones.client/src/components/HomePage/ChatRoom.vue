@@ -61,7 +61,7 @@ export default {
       account: computed(() => AppState.account),
       editable,
 
-      async createMessage(channelId) {
+      async createMessage() {
         try {
           let messageData = editable.value
           messageData.roomId = route.params.id
