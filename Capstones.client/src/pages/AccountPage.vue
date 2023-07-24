@@ -61,7 +61,7 @@
     </section>
 
     <section class="row">
-      <div class="d-flex" v-if="account.isTutor == true">
+      <div class="d-flex">
         <button data-bs-toggle="modal" data-bs-target="#tutorSubject">Add Subject / Level</button>
         <button>Edit Profile</button>
       </div>

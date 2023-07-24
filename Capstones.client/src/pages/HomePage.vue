@@ -128,6 +128,10 @@ export default {
 
 }
 
+.dark-theme {
+  background-image: ;
+}
+
 
 
 // card {

@@ -1,8 +1,9 @@
 <template>
-    <div class="dashboard"
-        style="background-image: url('https://images.pexels.com/photos/3825880/pexels-photo-3825880.jpeg?cs=srgb&dl=pexels-evie-shaffer-3825880.jpg&fm=jpg');">
+    <div class="dashboard" id="dash">
         <p class="text-center">
-            students home page
+            <i><b>
+                    DASHBOARD
+                </b></i>
         </p>
         <!-- NOTE student DASHBOARD  -->
         <div class="container-fluid ">
@@ -39,7 +40,7 @@
                                         </div>
                                     </div>
                                     <div class="text-end">
-                                        <button type="submit" class="btn btn-primary">Search</button>
+                                        <!-- <button type="submit" class="btn btn-primary">Search</button> -->
                                     </div>
                                     <button @click="filterBy = '100'" class="btn btn-primary mx-1">100</button>
                                     <button @click="filterBy = '200'" class="btn btn-primary mx-1">200</button>
@@ -59,7 +60,7 @@
         </div>
 
 
-        upcoming sessions cards
+        <!-- upcoming sessions cards -->
         <div class="row justify-content-center text-light">
             Upcoming sessions:
             <div class="row justify-content-center">
@@ -88,6 +89,7 @@
 </template>
 
 
+
 <script>
 import { AppState } from '../AppState';
 import { computed, reactive, onMounted, ref } from 'vue';
@@ -100,6 +102,7 @@ export default {
     setup() {
         const filterBy = ref('')
         const search = ref('')
+
         // const searchlevel = ref('')
         // const searchSubject = ref({})
         return {
@@ -117,6 +120,11 @@ export default {
                     logger.error(error)
                 }
             },
+
+
+
+
+
             topics: computed(() => {
                 if (filterBy.value == '100') {
                     return AppState.topics.filter(t => t.level == filterBy.value)
@@ -137,9 +145,10 @@ export default {
         }
 
     }
+}
 
 
-};
+
 </script>
 
 
@@ -151,9 +160,18 @@ body,
 }
 
 .dashboard {
-    // background-image: url('https://images.pexels.com/photos/3825880/pexels-photo-3825880.jpeg?cs=srgb&dl=pexels-evie-shaffer-3825880.jpg&fm=jpg');
+    background-image: url('https://images.pexels.com/photos/3825880/pexels-photo-3825880.jpeg?cs=srgb&dl=pexels-evie-shaffer-3825880.jpg&fm=jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    min-height: 90.2vh;
+}
+
+.dark-theme {
+    background-image: url('https://wallpapers.com/images/hd/pile-of-books-in-the-dark-jh9n5fa0wgv97uk0.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 90.2vh;
 }
 </style>
