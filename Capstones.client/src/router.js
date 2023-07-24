@@ -37,14 +37,14 @@ const routes = [
   {
     // path:'/account/messages',
     path: '/channel',
-    name: 'Channel',
+    name: 'HubPage',
     component: loadPage('MessageHubPage'),
     beforeEnter:authGuard
   },
   {
-    path: '/account/messages/:id',
-    name: 'SessionMessage',
-    component: loadPage('SessionMessagePage'),
+    path: '/channel/:id',
+    name: 'Channel',
+    component: loadPage('ChannelPage'),
     beforeEnter:authGuard
   },
     {
