@@ -129,7 +129,7 @@ export default {
 }
 
 .dark-theme {
-  background-image: ;
+  background-image: lightgrey;
 }
 
 
