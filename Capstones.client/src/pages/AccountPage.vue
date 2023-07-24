@@ -28,12 +28,19 @@
       <div>
         <h5>My Requests from students:</h5>
       </div>
-      <div class="col-md-3 col-10" v-for="t in tutorSessions" :key="t.id">
+      <div class="col-md-3 col-10 my-3" v-for="t in tutorSessions" :key="t.id">
         <div class="card bg-white">
           <div :class="{ 'bg-danger': t.status == 'denied' }">
-            <p>Session Status: {{ t.status }}</p>
-            <button @click="acceptSession(t, t.id)">Accept</button>
-            <button @click="denySession(t, t.id)">Deny</button>
+            <p><b>Session Status:</b> {{ t.status }}</p>
+            <p>{{ t.name }}</p>
+            <div class="d-flex align-items-center">
+              <img class="student mx-1" :src="t.student.picture" alt="">
+              <p> {{ t.student.name }}</p>
+            </div>
+            <div class="d-flex justify-content-around">
+              <button class="btn btn-primary" @click="acceptSession(t, t.id)">Accept</button>
+              <button class="btn btn-danger" @click="denySession(t, t.id)">Deny</button>
+            </div>
           </div>
         </div>
 
@@ -43,11 +50,12 @@
       <div>
         <h5>My requests as a student:</h5>
       </div>
-      <div class="col-md-3" v-for="t in studentSessions" :key="t.id">
+      <div class="col-md-3 m-3" v-for="t in studentSessions" :key="t.id">
         <div class="card bg-white">
-          <p>Session Status: {{ t.status }}</p>
-          <p>Tutor Name: {{ t.tutor.name }}</p>
-          {{ t.tutor.picture }}
+          <p class=""><b>Session Status:</b> {{ t.status }}</p>
+          <p><b>Tutor Name: </b>{{ t.tutor.name }}</p>
+          <img class="tutorpic" :src="t.tutor.picture" alt="">
+
         </div>
 
         <!-- {{ t.tutor.name }} -->
@@ -62,8 +70,8 @@
 
     <section class="row">
       <div class="d-flex">
-        <button data-bs-toggle="modal" data-bs-target="#tutorSubject">Add Subject / Level</button>
-        <button>Edit Profile</button>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tutorSubject">Add Subject / Level</button>
+        <button class="btn btn-primary mx-2">Edit Profile</button>
       </div>
 
 
@@ -180,5 +188,17 @@ export default {
 
 img {
   max-width: 100px;
+}
+
+.tutorpic {
+  border-radius: 50%;
+  padding: 3px;
+}
+
+.student {
+  border-radius: 50%;
+  margin-left: 2px;
+  height: 70px;
+  margin-bottom: 9px;
 }
 </style>

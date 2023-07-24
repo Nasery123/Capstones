@@ -37,6 +37,7 @@ class AccountService {
 
   async getTutorSessions() {
     const res = await api.get('account/tutor/sessions')
+    logger.log(['here are some res and data'], res.data)
     AppState.tutorSessions = res.data
   }
 
