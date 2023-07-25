@@ -38,6 +38,8 @@
             <h4 class=" pt-3"><em> {{ t.student.name }}</em></h4>  
           </div>
 
+          <em>FIGURE OUT HOW TO ADD SESSION TOPIC</em>
+
           <div :class="{ 'bg-danger': t.status == 'denied' }">
             <p class="ps-2"><b>Session Status:</b> {{ t.status }}</p>
             <!-- <p>{{ t.name }}</p> -->
