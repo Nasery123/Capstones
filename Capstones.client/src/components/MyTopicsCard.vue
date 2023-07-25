@@ -1,10 +1,11 @@
 <template>
     <section class="row">
         <div class="col-md-4 col-10 py-2">
-            <div class="card">
+            <div class="card bg-white">
                 <h4>Subject: {{ myTopicsProp?.subject }}</h4>
                 <h4>Level: {{ myTopicsProp?.level }}</h4>
                 <h5>Hourly Rate: ${{ myTopicsProp?.hourlyRate }}</h5>
+                {{ student }}
                 <button @click="deleteMyTopic(myTopicsProp?.id)" class="mdi mdi-delete btn btn-danger"></button>
 
             </div>

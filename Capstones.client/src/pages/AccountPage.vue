@@ -18,7 +18,7 @@
       <div>
         <h5>My Topics:</h5>
       </div>
-      <div class="col-12">
+      <div class="col-12 ">
         <div class="" v-for="t in myTopics" :key="t.id">
           <MyTopicsCard :myTopicsProp="t" />
         </div>
