@@ -28,16 +28,20 @@
       <div>
         <h5>My Requests from students:</h5>
       </div>
-      <div class="col-md-3 col-10 my-3" v-for="t in tutorSessions" :key="t.id">
+      <div class="ps-5 col-md-3 col-10 my-3" v-for="t in tutorSessions" :key="t.id">
         <div class="card bg-white">
-          <div :class="{ 'bg-danger': t.status == 'denied' }">
-            <p><b>Session Status:</b> {{ t.status }}</p>
-            <p>{{ t.name }}</p>
-            <div class="d-flex align-items-center">
+
+          <div class="d-flex flex-row pt-2">
+            <div class="ps-2 d-flex align-items-center">
               <img class="student mx-1" :src="t.student.picture" alt="">
-              <p> {{ t.student.name }}</p>
             </div>
-            <div class="d-flex justify-content-around">
+            <h4 class=" pt-3"><em> {{ t.student.name }}</em></h4>  
+          </div>
+
+          <div :class="{ 'bg-danger': t.status == 'denied' }">
+            <p class="ps-2"><b>Session Status:</b> {{ t.status }}</p>
+            <!-- <p>{{ t.name }}</p> -->
+            <div class="py-3 d-flex justify-content-around">
               <button class="btn btn-primary" @click="acceptSession(t, t.id)">Accept</button>
               <button class="btn btn-danger" @click="denySession(t, t.id)">Deny</button>
             </div>
@@ -52,9 +56,9 @@
       </div>
       <div class="col-md-3 m-3" v-for="t in studentSessions" :key="t.id">
         <div class="card bg-white">
-          <p class=""><b>Session Status:</b> {{ t.status }}</p>
           <p><b>Tutor Name: </b>{{ t.tutor.name }}</p>
           <img class="tutorpic" :src="t.tutor.picture" alt="">
+          <p class=""><b>Session Status:</b> {{ t.status }}</p>
 
         </div>
 
